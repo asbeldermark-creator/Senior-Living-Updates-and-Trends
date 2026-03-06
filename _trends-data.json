@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "schema_version": "1.0",
+    "description": "Trend continuity data for Senior Living Industry Updates. Read by the scheduled task to assign Rising/Cooling/Still Hot badges on each new report run.",
+    "last_updated": "2026-03-06",
+    "report_count": 1
+  },
+  "trends": [
+    {
+      "id": "T-01",
+      "name": "Occupancy Recovery Plateau",
+      "category": "Market",
+      "heat": 3,
+      "breadth": 5,
+      "first_seen": "2026-03-06",
+      "last_seen": "2026-03-06",
+      "history": [
+        { "date": "2026-03-06", "heat": 3, "breadth": 5, "badge": "new" }
+      ]
+    },
+    {
+      "id": "T-02",
+      "name": "Labor Cost Acceleration",
+      "category": "Workforce",
+      "heat": 3,
+      "breadth": 5,
+      "first_seen": "2026-03-06",
+      "last_seen": "2026-03-06",
+      "history": [
+        { "date": "2026-03-06", "heat": 3, "breadth": 5, "badge": "new" }
+      ]
+    },
+    {
+      "id": "T-03",
+      "name": "AI-Assisted Care Planning",
+      "category": "Technology",
+      "heat": 3,
+      "breadth": 4,
+      "first_seen": "2026-03-06",
+      "last_seen": "2026-03-06",
+      "history": [
+        { "date": "2026-03-06", "heat": 3, "breadth": 4, "badge": "new" }
+      ]
+    },
+    {
+      "id": "T-04",
+      "name": "Higher-Acuity Resident Mix",
+      "category": "Clinical",
+      "heat": 3,
+      "breadth": 4,
+      "first_seen": "2026-03-06",
+      "last_seen": "2026-03-06",
+      "dining": true,
+      "history": [
+        { "date": "2026-03-06", "heat": 3, "breadth": 4, "badge": "new" }
+      ]
+    },
+    {
+      "id": "T-05",
+      "name": "Private Equity Pressure on Margins",
+      "category": "Finance",
+      "heat": 2,
+      "breadth": 4,
+      "first_seen": "2026-03-06",
+      "last_seen": "2026-03-06",
+      "history": [
+        { "date": "2026-03-06", "heat": 2, "breadth": 4, "badge": "new" }
+      ]
+    },
+    {
+      "id": "T-06",
+      "name": "Memory Care Demand Surge",
+      "category": "Market",
+      "heat": 2,
+      "breadth": 4,
+      "first_seen": "2026-03-06",
+      "last_seen": "2026-03-06",
+      "history": [
+        { "date": "2026-03-06", "heat": 2, "breadth": 4, "badge": "new" }
+      ]
+    },
+    {
+      "id": "T-07",
+      "name": "Regulatory Scrutiny Intensification",
+      "category": "Regulatory",
+      "heat": 3,
+      "breadth": 3,
+      "first_seen": "2026-03-06",
+      "last_seen": "2026-03-06",
+      "history": [
+        { "date": "2026-03-06", "heat": 3, "breadth": 3, "badge": "new" }
+      ]
+    },
+    {
+      "id": "T-08",
+      "name": "Workforce Crisis & Retention Tech",
+      "category": "Workforce",
+      "heat": 3,
+      "breadth": 5,
+      "first_seen": "2026-03-06",
+      "last_seen": "2026-03-06",
+      "dining": true,
+      "history": [
+        { "date": "2026-03-06", "heat": 3, "breadth": 5, "badge": "new" }
+      ]
+    },
+    {
+      "id": "T-09",
+      "name": "AI Adoption Anxiety",
+      "category": "Technology",
+      "heat": 2,
+      "breadth": 3,
+      "first_seen": "2026-03-06",
+      "last_seen": "2026-03-06",
+      "dining": true,
+      "history": [
+        { "date": "2026-03-06", "heat": 2, "breadth": 3, "badge": "new" }
+      ]
+    },
+    {
+      "id": "T-10",
+      "name": "EHR & Platform Consolidation",
+      "category": "Technology",
+      "heat": 2,
+      "breadth": 4,
+      "first_seen": "2026-03-06",
+      "last_seen": "2026-03-06",
+      "dining": true,
+      "history": [
+        { "date": "2026-03-06", "heat": 2, "breadth": 4, "badge": "new" }
+      ]
+    },
+    {
+      "id": "T-11",
+      "name": "Resident Experience as Differentiator",
+      "category": "Operations",
+      "heat": 2,
+      "breadth": 3,
+      "first_seen": "2026-03-06",
+      "last_seen": "2026-03-06",
+      "history": [
+        { "date": "2026-03-06", "heat": 2, "breadth": 3, "badge": "new" }
+      ]
+    },
+    {
+      "id": "T-12",
+      "name": "Revenue Diversification",
+      "category": "Finance",
+      "heat": 1,
+      "breadth": 3,
+      "first_seen": "2026-03-06",
+      "last_seen": "2026-03-06",
+      "history": [
+        { "date": "2026-03-06", "heat": 1, "breadth": 3, "badge": "new" }
+      ]
+    }
+  ],
+  "badge_logic": {
+    "description": "Rules for assigning continuity badges on future runs. Compare current heat/breadth to previous run values.",
+    "new": "trend ID not present in previous run",
+    "rising": "heat increased by 1+ OR breadth increased by 2+ since last run",
+    "still_hot": "heat == 3 and unchanged for 2+ consecutive runs",
+    "cooling": "heat decreased by 1+ since last run",
+    "stable": "heat and breadth unchanged, heat < 3"
+  }
+}

@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eldermark Industry Trends — March 6, 2026</title>
+<style>
+:root {
+  --teal:#006D77;--teal-light:#83C5BE;--orange:#E07A5F;--navy:#1A2238;
+  --cream:#F8F5F0;--gray:#6B7280;--gray-light:#F3F4F6;--border:#E5E7EB;
+  --hot:#DC2626;--hot-bg:#FEF2F2;--dining:#7C3AED;--dining-bg:#F5F3FF;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--navy);font-size:14px;line-height:1.6;}
+a{color:var(--teal);text-decoration:none;}a:hover{text-decoration:underline;}
+
+/* HEADER */
+header{background:var(--navy);color:white;padding:28px 40px;border-bottom:4px solid var(--teal);}
+header .label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-light);margin-bottom:6px;}
+header h1{font-size:26px;font-weight:700;margin-bottom:4px;}
+header .sub{color:#94A3B8;font-size:13px;display:flex;gap:24px;flex-wrap:wrap;}
+header .sub span{display:flex;align-items:center;gap:5px;}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--teal-light);font-size:12px;font-weight:600;margin-bottom:12px;}
+
+.meta-bar{background:var(--teal);color:white;padding:9px 40px;display:flex;gap:24px;font-size:12px;font-weight:600;flex-wrap:wrap;}
+
+.container{max-width:1300px;margin:0 auto;padding:28px 40px;}
+
+/* FILTER BAR */
+.filter-bar{background:white;border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:18px;display:flex;align-items:center;flex-wrap:wrap;gap:10px;}
+.fb-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--gray);white-space:nowrap;}
+.fg{display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
+.fg-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gray);padding-right:5px;border-right:1px solid var(--border);margin-right:2px;}
+.fb-div{width:1px;background:var(--border);align-self:stretch;margin:0 2px;}
+.fbtn{padding:3px 10px;border-radius:20px;border:1.5px solid var(--border);background:white;cursor:pointer;font-size:11px;font-weight:700;color:var(--gray);transition:all .15s;white-space:nowrap;}
+.fbtn:hover{border-color:var(--teal);color:var(--teal);}
+.fbtn.on{background:var(--teal);border-color:var(--teal);color:white;}
+.fbtn.on-hot{background:var(--hot);border-color:var(--hot);color:white;}
+.fbtn.on-dining{background:var(--dining);border-color:var(--dining);color:white;}
+.fbtn-clr{padding:3px 10px;border-radius:20px;border:1.5px dashed var(--border);background:transparent;cursor:pointer;font-size:11px;font-weight:600;color:var(--gray);transition:all .15s;}
+.fbtn-clr:hover{border-color:var(--orange);color:var(--orange);}
+
+/* LEGEND */
+.legend-bar{background:white;border:1px solid var(--border);border-radius:10px;padding:12px 18px;margin-bottom:18px;display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;}
+.lg-group{display:flex;flex-direction:column;gap:4px;}
+.lg-title{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--gray);margin-bottom:1px;}
+.lg-row{display:flex;align-items:center;gap:5px;font-size:12px;color:#374151;}
+.lg-div{width:1px;background:var(--border);align-self:stretch;}
+.bdots{display:flex;gap:2px;}
+.bd{width:9px;height:9px;border-radius:50%;background:var(--border);}
+.bd.f{background:var(--teal);}
+.flames{display:flex;gap:1px;}
+.fl{font-size:12px;opacity:.2;}
+.fl.on{opacity:1;}
+
+/* BADGES */
+.badge{display:inline-block;padding:2px 7px;border-radius:12px;font-size:10px;font-weight:700;letter-spacing:.03em;white-space:nowrap;}
+.b-ops{background:#DBEAFE;color:#1D4ED8;}
+.b-don{background:#D1FAE5;color:#065F46;}
+.b-fin{background:#FEF3C7;color:#92400E;}
+.b-reit{background:#EDE9FE;color:#5B21B6;}
+.b-mkt{background:#FCE7F3;color:#9D174D;}
+.b-dining{background:var(--dining-bg);color:var(--dining);}
+
+/* CONTINUITY BADGES */
+.c-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:800;letter-spacing:.04em;white-space:nowrap;}
+.c-new{background:#ECFDF5;color:#065F46;border:1px solid #6EE7B7;}
+.c-hot{background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;}
+.c-rising{background:#EFF6FF;color:#1D4ED8;border:1px solid #BFDBFE;}
+.c-cooling{background:#F9FAFB;color:var(--gray);border:1px solid var(--border);}
+
+/* HOT PANEL */
+.hot-panel{background:var(--hot-bg);border:2px solid #FECACA;border-radius:12px;margin-bottom:24px;overflow:hidden;}
+.hot-hdr{background:var(--hot);color:white;padding:9px 18px;display:flex;align-items:center;gap:8px;}
+.hot-hdr h2{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;}
+.hot-hdr .hot-sub{font-size:11px;opacity:.85;margin-left:auto;}
+.hot-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1px;background:#FECACA;padding:1px;}
+.hot-item{background:#FFF5F5;padding:12px 14px;}
+.hot-item .hi-type{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--hot);margin-bottom:3px;}
+.hot-item .hi-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px;line-height:1.3;}
+.hot-item .hi-body{font-size:12px;color:#374151;line-height:1.5;}
+.hot-item .hi-date{font-size:10px;color:var(--hot);font-weight:700;margin-top:5px;}
+.hot-item .hi-em{font-size:11px;color:var(--teal);font-weight:600;margin-top:4px;padding-top:4px;border-top:1px solid #FECACA;}
+
+/* DINING PANEL */
+.dining-panel{background:var(--dining-bg);border:2px solid #DDD6FE;border-radius:12px;margin-bottom:24px;overflow:hidden;}
+.dining-hdr{background:var(--dining);color:white;padding:9px 18px;display:flex;align-items:center;gap:8px;}
+.dining-hdr h2{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;}
+.dining-hdr .d-sub{font-size:11px;opacity:.85;margin-left:auto;}
+.dining-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:#DDD6FE;padding:1px;}
+.d-item{background:#FDFCFF;padding:14px 16px;}
+.d-item .di-type{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--dining);margin-bottom:3px;}
+.d-item .di-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;line-height:1.3;}
+.d-item .di-stat{font-size:18px;font-weight:800;color:var(--dining);margin-bottom:3px;}
+.d-item .di-body{font-size:12px;color:#374151;line-height:1.5;}
+.d-item .di-em{font-size:11px;color:var(--teal);font-weight:600;margin-top:5px;padding-top:5px;border-top:1px solid #DDD6FE;}
+
+/* SUMMARY TABLE */
+.tbl-wrap{overflow-x:auto;margin-bottom:24px;}
+.summary-table{width:100%;border-collapse:collapse;background:white;border-radius:10px;overflow:hidden;border:1px solid var(--border);font-size:12px;min-width:900px;}
+.summary-table th{background:var(--navy);color:white;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:9px 11px;text-align:left;white-space:nowrap;}
+.summary-table td{padding:9px 11px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.4;}
+.summary-table tr:last-child td{border-bottom:none;}
+.summary-table tr:nth-child(even) td{background:#FAFAFA;}
+.summary-table tr.hr{display:none;}
+.tdot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:3px;vertical-align:middle;}
+.dh{background:var(--orange);}.dm{background:var(--teal);}
+.tn{font-weight:700;color:var(--navy);}
+.tc{color:#4B5563;font-size:11px;}
+.ts{font-size:11px;color:var(--teal);font-weight:600;}
+
+/* SECTION */
+.section-wrap{}
+.section-wrap.all-hidden{display:none;}
+.sec-hdr{display:flex;align-items:center;gap:8px;margin:32px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--teal);}
+.sec-hdr .ico{font-size:18px;}
+.sec-hdr h2{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--teal);}
+.sec-hdr .sc{margin-left:auto;font-size:11px;color:var(--gray);font-weight:600;background:var(--gray-light);padding:2px 8px;border-radius:10px;}
+
+/* TREND CARDS */
+.tcard{background:white;border:1px solid var(--border);border-radius:10px;margin-bottom:14px;overflow:hidden;position:relative;}
+.tcard.hidden-card{display:none;}
+.tcard::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;}
+.tcard.ph::before{background:var(--orange);}
+.tcard.pm::before{background:var(--teal);}
+.tcard.pd::before{background:var(--dining);}
+
+.thdr{padding:12px 18px 9px 22px;display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap;}
+.tnum{font-size:11px;font-weight:800;color:var(--gray);background:var(--gray-light);padding:2px 6px;border-radius:4px;white-space:nowrap;margin-top:2px;}
+.ttitle{flex:1;min-width:180px;}
+.ttitle h3{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:3px;line-height:1.3;}
+.tbadges{display:flex;flex-wrap:wrap;gap:4px;margin-top:3px;}
+.tscores{display:flex;flex-direction:column;gap:4px;align-items:flex-end;min-width:110px;}
+.srow{display:flex;align-items:center;gap:5px;}
+.slbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gray);min-width:48px;text-align:right;}
+
+.tdata{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:1px;background:var(--border);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.dp{background:var(--gray-light);padding:9px 13px;}
+.dp-v{font-size:18px;font-weight:800;color:var(--teal);line-height:1.1;}
+.dp-l{font-size:11px;color:var(--gray);font-weight:500;margin-top:1px;}
+
+.tctx{padding:11px 18px 3px 22px;background:#F9FAFB;border-bottom:1px solid var(--border);}
+.tctx h4{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:var(--navy);margin-bottom:4px;}
+.tctx p{font-size:13px;color:#374151;line-height:1.6;margin-bottom:10px;}
+
+.tbody{padding:12px 18px 12px 22px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+@media(max-width:650px){.tbody{grid-template-columns:1fr;}}
+.sbk h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gray);margin-bottom:5px;}
+.sbk p,.sbk li{font-size:13px;color:#374151;line-height:1.55;}
+.sbk ul{padding-left:15px;}
+.sbk li{margin-bottom:3px;}
+
+.tangles{background:#F0FDFA;border-top:1px solid #CCFBF1;padding:11px 18px 11px 22px;}
+.tangles h4{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);margin-bottom:5px;}
+.apills{display:flex;flex-wrap:wrap;gap:5px;}
+.ap{background:white;border:1px solid var(--teal-light);border-radius:20px;padding:3px 9px;font-size:11px;font-weight:600;color:var(--teal);}
+
+.no-results{display:none;text-align:center;padding:40px;color:var(--gray);font-size:14px;background:white;border-radius:10px;border:1px dashed var(--border);margin-bottom:14px;}
+.no-results.visible{display:block;}
+
+.aud-key{background:white;border:1px solid var(--border);border-radius:10px;padding:10px 18px;margin-bottom:16px;display:flex;align-items:center;flex-wrap:wrap;gap:7px;}
+.aud-key .kl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gray);margin-right:3px;}
+
+footer{background:var(--navy);color:#94A3B8;padding:20px 40px;font-size:11px;line-height:2;}
+footer h3{color:white;font-size:12px;margin-bottom:6px;text-transform:uppercase;letter-spacing:.08em;}
+footer a{color:var(--teal-light);}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="back-link" href="../index.html">← All Reports</a>
+  <div class="label">Eldermark Content Intelligence</div>
+  <h1>Senior Living Industry Trends</h1>
+  <div class="sub">
+    <span>📅 March 6, 2026</span>
+    <span>📊 16 Trends (12 Industry + 4 Dining)</span>
+    <span>📰 15+ Sources</span>
+    <span>🆕 First edition — all trends are new</span>
+  </div>
+</header>
+
+<div class="meta-bar">
+  <span>Brands covered: Eldermark · eMenuChoice</span>
+  <span>🏥 Senior Living Platform &amp; 🍽️ Dining Management</span>
+</div>
+
+<div class="container">
+
+<!-- FILTERS -->
+<div class="filter-bar">
+  <span class="fb-label">Filter:</span>
+  <div class="fg">
+    <span class="fg-title">Audience</span>
+    <button class="fbtn" data-f="aud" data-v="ops" onclick="tf(this)">OPS</button>
+    <button class="fbtn" data-f="aud" data-v="don" onclick="tf(this)">DON</button>
+    <button class="fbtn" data-f="aud" data-v="fin" onclick="tf(this)">FIN</button>
+    <button class="fbtn" data-f="aud" data-v="reit" onclick="tf(this)">REIT</button>
+    <button class="fbtn" data-f="aud" data-v="mkt" onclick="tf(this)">MKT</button>
+  </div>
+  <div class="fb-div"></div>
+  <div class="fg">
+    <span class="fg-title">Heat</span>
+    <button class="fbtn" data-f="heat" data-v="3" onclick="tf(this)">🔥🔥🔥 Breaking</button>
+    <button class="fbtn" data-f="heat" data-v="2" onclick="tf(this)">🔥🔥 Active</button>
+    <button class="fbtn" data-f="heat" data-v="1" onclick="tf(this)">🔥 Slow Burn</button>
+  </div>
+  <div class="fb-div"></div>
+  <div class="fg">
+    <span class="fg-title">Breadth</span>
+    <button class="fbtn" data-f="breadth" data-v="5" onclick="tf(this)">●●●●● Universal</button>
+    <button class="fbtn" data-f="breadth" data-v="4" onclick="tf(this)">●●●●○ Wide</button>
+    <button class="fbtn" data-f="breadth" data-v="3" onclick="tf(this)">●●●○○ Moderate</button>
+  </div>
+  <div class="fb-div"></div>
+  <div class="fg">
+    <span class="fg-title">Brand</span>
+    <button class="fbtn" data-f="brand" data-v="dining" onclick="tf(this)">🍽️ eMenuChoice / Dining</button>
+  </div>
+  <div class="fb-div"></div>
+  <button class="fbtn-clr" onclick="cf()">✕ Clear all</button>
+</div>
+
+<!-- LEGEND -->
+<div class="legend-bar">
+  <span style="font-size:12px;font-weight:700;color:var(--navy);align-self:center;margin-right:6px;">HOW TO READ</span>
+  <div class="lg-group">
+    <div class="lg-title">Signal Breadth — How Widespread</div>
+    <div class="lg-row"><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd"></span><span class="bd"></span><span class="bd"></span></div><span>1–2 source types / niche</span></div>
+    <div class="lg-row"><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd"></span><span class="bd"></span></div><span>3–4 source types / growing</span></div>
+    <div class="lg-row"><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span></div><span>5 source types / consensus</span></div>
+    <div style="font-size:10px;color:var(--gray);margin-top:1px;">Investment · Trade · Clinical · Operator Surveys · Legal/Regulatory</div>
+  </div>
+  <div class="lg-div"></div>
+  <div class="lg-group">
+    <div class="lg-title">Heat — How Urgent</div>
+    <div class="lg-row"><div class="flames"><span class="fl on">🔥</span><span class="fl">🔥</span><span class="fl">🔥</span></div><span>Slow burn</span></div>
+    <div class="lg-row"><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl">🔥</span></div><span>Active &amp; escalating</span></div>
+    <div class="lg-row"><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl on">🔥</span></div><span>Breaking</span></div>
+    <div style="font-size:10px;color:var(--gray);margin-top:1px;">Recency · Regulation · M&amp;A · Demographic milestones</div>
+  </div>
+  <div class="lg-div"></div>
+  <div class="lg-group">
+    <div class="lg-title">Continuity</div>
+    <div class="lg-row"><span class="c-badge c-new">🆕 New</span><span>First appearance</span></div>
+    <div class="lg-row"><span class="c-badge c-rising">📈 Rising</span><span>Score increased</span></div>
+    <div class="lg-row"><span class="c-badge c-hot">🔥 Still Hot</span><span>Heat 3 maintained</span></div>
+    <div class="lg-row"><span class="c-badge c-cooling">📉 Cooling</span><span>Score dropped</span></div>
+  </div>
+  <div class="lg-div"></div>
+  <div class="lg-group">
+    <div class="lg-title">Audience</div>
+    <div class="lg-row"><span class="badge b-ops">OPS</span> Operations</div>
+    <div class="lg-row"><span class="badge b-don">DON</span> Nursing / Care</div>
+    <div class="lg-row"><span class="badge b-fin">FIN</span> Finance / CFO</div>
+    <div class="lg-row"><span class="badge b-reit">REIT</span> Real Estate</div>
+    <div class="lg-row"><span class="badge b-mkt">MKT</span> Marketing</div>
+    <div class="lg-row"><span class="badge b-dining">🍽️ Dining</span> eMenuChoice</div>
+  </div>
+</div>
+
+<!-- HOT RIGHT NOW -->
+<div class="hot-panel" id="hot-panel">
+  <div class="hot-hdr"><span style="font-size:16px;">🔥</span><h2>Hot Right Now — Breaking &amp; Fast-Moving</h2><span class="hot-sub">New, intense, or rapidly escalating as of March 2026</span></div>
+  <div class="hot-grid">
+    <div class="hot-item" data-auds="fin ops don">
+      <div class="hi-type">⚖️ Legislation</div>
+      <div class="hi-title">"One Big Beautiful Bill" — $1T+ Medicaid Cuts Are Law</div>
+      <div class="hi-body">Signed July 4, 2025. Work requirements, biannual eligibility rechecks (effective Jan 1, 2027), and deep state program cuts are now in motion. Biggest Medicaid policy shift in a generation.</div>
+      <div class="hi-date">⚡ Signed July 4, 2025 — Implementation underway NOW</div>
+      <div class="hi-em">→ Eldermark: Compliance tracking, payer mix reporting, billing model content</div>
+    </div>
+    <div class="hot-item" data-auds="ops don mkt reit">
+      <div class="hi-type">👶 Demographic Milestone</div>
+      <div class="hi-title">First Baby Boomers Turn 80 in 2026 — Peak Demand Begins</div>
+      <div class="hi-body">The oldest Boomers (born 1946) hit 80 this year — the age when AL and memory care need rises sharply. 80+ population grows 28% by 2030, 55% by 2035. The wave is no longer coming — it is here.</div>
+      <div class="hi-date">⚡ Calendar milestone — 2026</div>
+      <div class="hi-em">→ Eldermark: Memory care readiness, CRM pipeline strategy, acuity care planning</div>
+    </div>
+    <div class="hot-item" data-auds="reit fin">
+      <div class="hi-type">💰 M&amp;A / Investment</div>
+      <div class="hi-title">Welltower &amp; Ventas on Buying Spree — $6.2B in One Quarter</div>
+      <div class="hi-body">Welltower deployed $6.2B in Q1 2025 alone — more than all of 2024. Ventas raised acquisition guidance to $1.5B. Largest capital deployment in senior housing in years. Independent operators are in the crosshairs.</div>
+      <div class="hi-date">⚡ Accelerating throughout 2025–2026</div>
+      <div class="hi-em">→ Eldermark: Due diligence content, KPI benchmarks, investor-facing analytics</div>
+    </div>
+    <div class="hot-item" data-auds="mkt ops">
+      <div class="hi-type">📡 Technology Shift</div>
+      <div class="hi-title">AI Search Changing How Families Find Senior Living</div>
+      <div class="hi-body">ChatGPT, Perplexity, and AI-powered Google are now how many families research senior living. Communities not appearing in AI-generated answers are losing leads they don't know exist. Already happening in 2026.</div>
+      <div class="hi-date">⚡ Actively reshaping lead generation now</div>
+      <div class="hi-em">→ Eldermark: AI search readiness, content structure, digital marketing strategy</div>
+    </div>
+    <div class="hot-item" data-auds="fin ops">
+      <div class="hi-type">📈 Reimbursement</div>
+      <div class="hi-title">Medicare Advantage Capitation Rate +5.06% for 2026</div>
+      <div class="hi-body">CMS announced a 5.06% MA capitation rate increase — more than double the prior year. Meaningful partial offset to Medicaid cuts. Driving renewed interest in MA as a payer strategy in AL communities.</div>
+      <div class="hi-date">⚡ Effective 2026 — now in effect</div>
+      <div class="hi-em">→ Eldermark: Payer diversification, MA billing model, value-based care eMAR content</div>
+    </div>
+    <div class="hot-item" data-auds="ops fin reit mkt">
+      <div class="hi-type">🏗️ Market Fundamentals</div>
+      <div class="hi-title">Occupancy Hits 89.1% — 18 Consecutive Quarters of Growth</div>
+      <div class="hi-body">Senior housing has recovered for 18 straight quarters. IL crossed 90% for the first time since 2019. With construction at record lows, NIC projects occupancy will break 90% in 2026 — potentially the highest in 20 years.</div>
+      <div class="hi-date">⚡ Q4 2025 data — just reported</div>
+      <div class="hi-em">→ Eldermark: Occupancy benchmarking, CRM strategy for high-demand markets</div>
+    </div>
+  </div>
+</div>
+
+<!-- DINING PANEL -->
+<div class="dining-panel" id="dining-panel">
+  <div class="dining-hdr"><span style="font-size:16px;">🍽️</span><h2>Dining &amp; Food Service Trends — eMenuChoice Focus</h2><span class="d-sub">Senior Living Dining Management · March 2026</span></div>
+  <div class="dining-grid">
+    <div class="d-item">
+      <div class="di-type">🩺 Clinical / Nutrition</div>
+      <div class="di-title">Dining as a Clinical Early-Warning Signal</div>
+      <div class="di-stat">↓ Appetite</div>
+      <div class="di-body">Research increasingly shows that changes in dining participation, food intake, and meal patterns precede clinical deterioration by days — often earlier than any vital sign change. Communities integrating dining data into EHR records are catching decline before it becomes a crisis. Appetite monitoring is emerging as a frontline clinical tool, especially in memory care.</div>
+      <div class="di-em">→ eMenuChoice: Dining data integration with Eldermark EHR; appetite tracking as clinical signal</div>
+    </div>
+    <div class="d-item">
+      <div class="di-type">📋 Compliance / Acuity</div>
+      <div class="di-title">Therapeutic Diet Complexity Rising with Resident Acuity</div>
+      <div class="di-stat">↑ Tx Diets</div>
+      <div class="di-body">As residents arrive with more complex medical conditions, the burden of therapeutic diet management is growing significantly. Modified textures (IDDSI standards), renal diets, cardiac diets, and diabetic meal plans are no longer edge cases — they're the majority in many AL communities. Managing these at scale, with accuracy, requires technology. Manual processes create compliance risk and resident safety exposure.</div>
+      <div class="di-em">→ eMenuChoice: IDDSI-compliant menu planning, therapeutic diet management at scale</div>
+    </div>
+    <div class="d-item">
+      <div class="di-type">💸 Financial / Operations</div>
+      <div class="di-title">Food Cost Inflation Pressuring Dining Budgets</div>
+      <div class="di-stat">+18%</div>
+      <div class="di-body">Food costs in senior living have increased roughly 18% since 2022, with protein, produce, and dairy seeing the sharpest increases. Operators are navigating a difficult balance: maintaining resident satisfaction (dining is consistently the #1 or #2 satisfaction driver) while controlling one of the few remaining variable cost categories. Data-driven menu optimization and waste reduction are gaining traction as financial levers.</div>
+      <div class="di-em">→ eMenuChoice: Menu cost analysis, waste reduction tracking, nutritional compliance reporting</div>
+    </div>
+    <div class="d-item">
+      <div class="di-type">😊 Resident Experience</div>
+      <div class="di-title">Dining Is the #1 Satisfaction Driver — and a Memory Care Differentiator</div>
+      <div class="di-stat">#1</div>
+      <div class="di-body">Industry satisfaction surveys consistently rank dining as the top or second-ranked driver of resident and family satisfaction. In memory care specifically, dementia-friendly dining design (reduced stimulation, finger foods, music, flexible timing) is becoming a competitive differentiator — not just a clinical accommodation. Communities that get dining right retain residents longer and generate stronger referral rates from families.</div>
+      <div class="di-em">→ eMenuChoice: Memory care dining protocols, resident preference tracking, family satisfaction reporting</div>
+    </div>
+  </div>
+</div>
+
+<!-- AUDIENCE KEY -->
+<div class="aud-key">
+  <span class="kl">Audience:</span>
+  <span class="badge b-ops">OPS — Operations</span>
+  <span class="badge b-don">DON — Nursing / Care Teams</span>
+  <span class="badge b-fin">FIN — Finance / CFO</span>
+  <span class="badge b-reit">REIT — Real Estate / Investors</span>
+  <span class="badge b-mkt">MKT — Marketing / Admissions</span>
+  <span class="badge b-dining">🍽️ Dining — eMenuChoice</span>
+</div>
+
+<!-- SUMMARY TABLE -->
+<div class="tbl-wrap">
+<table class="summary-table" id="stbl">
+  <thead><tr>
+    <th>#</th><th>Trend</th><th>Plain-English Context</th><th>Audience</th><th>Core Stat</th><th>Breadth</th><th>Heat</th><th>Status</th>
+  </tr></thead>
+  <tbody>
+    <tr data-auds="ops fin reit mkt" data-heat="3" data-breadth="5" data-brand="">
+      <td><b>1</b></td><td><span class="tdot dh"></span><span class="tn">Occupancy at Historic Highs</span></td>
+      <td class="tc">More seniors are in communities than at any tracked point. COVID recovery is complete and then some — 90%+ communities have pricing power and can be selective about admissions.</td>
+      <td><span class="badge b-ops">OPS</span> <span class="badge b-fin">FIN</span> <span class="badge b-reit">REIT</span></td>
+      <td class="ts">89.1% Q4 2025 — 18 consecutive qtrs</td>
+      <td><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span></div></td>
+      <td><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl on">🔥</span></div></td>
+      <td><span class="c-badge c-new">🆕 New</span></td>
+    </tr>
+    <tr data-auds="reit ops fin" data-heat="2" data-breadth="5" data-brand="">
+      <td><b>2</b></td><td><span class="tdot dh"></span><span class="tn">Supply-Demand Chasm</span></td>
+      <td class="tc">Lowest construction since 2009, record demand. Existing operators have exceptional pricing power; a long-term access crisis is building for the industry overall.</td>
+      <td><span class="badge b-reit">REIT</span> <span class="badge b-ops">OPS</span> <span class="badge b-fin">FIN</span></td>
+      <td class="ts">1,076 new units Q1 2025 — lowest since 2009</td>
+      <td><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span></div></td>
+      <td><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl">🔥</span></div></td>
+      <td><span class="c-badge c-new">🆕 New</span></td>
+    </tr>
+    <tr data-auds="ops don mkt reit" data-heat="3" data-breadth="5" data-brand="">
+      <td><b>3</b></td><td><span class="tdot dh"></span><span class="tn">The 80+ Boomer Wave</span></td>
+      <td class="tc">75M Boomers start turning 80 in 2026 — the age when AL and memory care need rises sharply. The wave is no longer a forecast; it's a calendar event happening now.</td>
+      <td><span class="badge b-ops">OPS</span> <span class="badge b-don">DON</span> <span class="badge b-mkt">MKT</span> <span class="badge b-reit">REIT</span></td>
+      <td class="ts">80+ population +28% by 2030, +55% by 2035</td>
+      <td><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span></div></td>
+      <td><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl on">🔥</span></div></td>
+      <td><span class="c-badge c-new">🆕 New</span></td>
+    </tr>
+    <tr data-auds="don ops fin" data-heat="2" data-breadth="4" data-brand="dining">
+      <td><b>4</b></td><td><span class="tdot dh"></span><span class="tn">Higher-Acuity Residents</span> <span class="badge b-dining">🍽️</span></td>
+      <td class="tc">Residents arrive sicker, later — often as crisis moves. More conditions, more medications, more therapeutic diet complexity on day one. Pressures clinical teams, billing, and dining services simultaneously.</td>
+      <td><span class="badge b-don">DON</span> <span class="badge b-ops">OPS</span> <span class="badge b-fin">FIN</span></td>
+      <td class="ts">Multi-condition crisis-move residents now the norm</td>
+      <td><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd"></span></div></td>
+      <td><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl">🔥</span></div></td>
+      <td><span class="c-badge c-new">🆕 New</span></td>
+    </tr>
+    <tr data-auds="fin ops mkt" data-heat="2" data-breadth="4" data-brand="">
+      <td><b>5</b></td><td><span class="tdot dh"></span><span class="tn">Rate Stabilization &amp; Dynamic Pricing</span></td>
+      <td class="tc">Post-COVID 10–15% rate hikes are ending. Stabilizing at 4–7%. Top operators now piloting hotel-style dynamic pricing — rates that flex with demand and unit type.</td>
+      <td><span class="badge b-fin">FIN</span> <span class="badge b-ops">OPS</span> <span class="badge b-mkt">MKT</span></td>
+      <td class="ts">4–7% rate growth projected 2026; margins at 25%+</td>
+      <td><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd"></span></div></td>
+      <td><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl">🔥</span></div></td>
+      <td><span class="c-badge c-new">🆕 New</span></td>
+    </tr>
+    <tr data-auds="ops fin mkt" data-heat="2" data-breadth="4" data-brand="">
+      <td><b>6</b></td><td><span class="tdot dh"></span><span class="tn">Middle-Market Affordability Crisis</span></td>
+      <td class="tc">Too wealthy for Medicaid, not wealthy enough for private-pay AL. 54% of middle-income seniors won't afford AL at current rates by 2033. Affordability is now families' #1 concern.</td>
+      <td><span class="badge b-ops">OPS</span> <span class="badge b-fin">FIN</span> <span class="badge b-mkt">MKT</span></td>
+      <td class="ts">54% of middle-income seniors can't afford AL by 2033</td>
+      <td><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd"></span></div></td>
+      <td><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl">🔥</span></div></td>
+      <td><span class="c-badge c-new">🆕 New</span></td>
+    </tr>
+    <tr data-auds="reit fin" data-heat="3" data-breadth="5" data-brand="">
+      <td><b>7</b></td><td><span class="tdot dm"></span><span class="tn">REIT &amp; Investment Surge</span></td>
+      <td class="tc">REITs froze during high-rate years; in 2025 that thawed dramatically. Welltower invested more in one quarter than in all of 2024. Institutional capital is back — at speed.</td>
+      <td><span class="badge b-reit">REIT</span> <span class="badge b-fin">FIN</span></td>
+      <td class="ts">$21.8B rolling 4-qtr volume — up 40%+ YoY</td>
+      <td><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span></div></td>
+      <td><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl on">🔥</span></div></td>
+      <td><span class="c-badge c-new">🆕 New</span></td>
+    </tr>
+    <tr data-auds="don ops fin" data-heat="2" data-breadth="5" data-brand="dining">
+      <td><b>8</b></td><td><span class="tdot dh"></span><span class="tn">Workforce / CNA Shortage</span> <span class="badge b-dining">🍽️</span></td>
+      <td class="tc">Structural, not cyclical. 1 in 4 communities turns away residents due to staffing. Dietary aides and cooks are among the hardest positions to fill — dining operations are directly exposed.</td>
+      <td><span class="badge b-don">DON</span> <span class="badge b-ops">OPS</span> <span class="badge b-fin">FIN</span></td>
+      <td class="ts">Labor = 56.1% of budgets; 35% say never recovering</td>
+      <td><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span></div></td>
+      <td><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl">🔥</span></div></td>
+      <td><span class="c-badge c-new">🆕 New</span></td>
+    </tr>
+    <tr data-auds="ops don mkt fin" data-heat="3" data-breadth="4" data-brand="dining">
+      <td><b>9</b></td><td><span class="tdot dh"></span><span class="tn">AI Adoption: Hype → Execution</span> <span class="badge b-dining">🍽️</span></td>
+      <td class="tc">Shifting from exploring to deploying. Real traction: hospitalization risk prediction, documentation automation, AI menu planning, and AI search reshaping how families find communities.</td>
+      <td><span class="badge b-ops">OPS</span> <span class="badge b-don">DON</span> <span class="badge b-mkt">MKT</span></td>
+      <td class="ts">Adoption 3.1% → 4.5% YoY; accelerating fast</td>
+      <td><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd"></span></div></td>
+      <td><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl on">🔥</span></div></td>
+      <td><span class="c-badge c-new">🆕 New</span></td>
+    </tr>
+    <tr data-auds="don ops" data-heat="2" data-breadth="3" data-brand="dining">
+      <td><b>10</b></td><td><span class="tdot dm"></span><span class="tn">EHR &amp; Data Integration</span> <span class="badge b-dining">🍽️</span></td>
+      <td class="tc">Disconnected systems create blind spots. Dining participation and appetite changes are early clinical warning signs — but only visible when dining data connects to the EHR.</td>
+      <td><span class="badge b-don">DON</span> <span class="badge b-ops">OPS</span></td>
+      <td class="ts">Engagement + clinical + dining converging in real-time</td>
+      <td><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd"></span><span class="bd"></span></div></td>
+      <td><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl">🔥</span></div></td>
+      <td><span class="c-badge c-new">🆕 New</span></td>
+    </tr>
+    <tr data-auds="fin ops don" data-heat="3" data-breadth="5" data-brand="">
+      <td><b>11</b></td><td><span class="tdot dh"></span><span class="tn">Medicaid Cuts (OBBB)</span></td>
+      <td class="tc">$1T+ in Medicaid cuts is now law. AL operators are somewhat insulated (private pay) but state waiver programs serving lower-income residents are at serious risk. SNFs face direct exposure.</td>
+      <td><span class="badge b-fin">FIN</span> <span class="badge b-ops">OPS</span> <span class="badge b-don">DON</span></td>
+      <td class="ts">$1T+ cuts; 11.8M Americans to lose coverage by 2034</td>
+      <td><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span></div></td>
+      <td><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl on">🔥</span></div></td>
+      <td><span class="c-badge c-new">🆕 New</span></td>
+    </tr>
+    <tr data-auds="ops don mkt" data-heat="2" data-breadth="3" data-brand="">
+      <td><b>12</b></td><td><span class="tdot dm"></span><span class="tn">Blended / Flexible Care Models</span></td>
+      <td class="tc">Rigid IL/AL/MC categories don't reflect real people's needs. Operators are experimenting with needs- and interest-based models, with billing and staffing that adapt as residents change.</td>
+      <td><span class="badge b-ops">OPS</span> <span class="badge b-don">DON</span> <span class="badge b-mkt">MKT</span></td>
+      <td class="ts">Rigid care levels giving way to needs-based models</td>
+      <td><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd"></span><span class="bd"></span></div></td>
+      <td><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl">🔥</span></div></td>
+      <td><span class="c-badge c-new">🆕 New</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="no-results" id="nores">No trends match the current filters. Try adjusting your selection.</div>
+
+<!-- SECTION 1: MARKET -->
+<div class="section-wrap" id="s-market">
+  <div class="sec-hdr"><span class="ico">📈</span><h2>Occupancy &amp; Market Fundamentals</h2><span class="sc">Trends 1–3</span></div>
+
+  <div class="tcard ph" data-auds="ops fin reit mkt" data-heat="3" data-breadth="5" data-brand="">
+    <div class="thdr">
+      <span class="tnum">T-01</span>
+      <div class="ttitle"><h3>Occupancy at Historic Highs — Heading to 90%+ in 2026</h3><div class="tbadges"><span class="badge b-ops">OPS</span><span class="badge b-fin">FIN</span><span class="badge b-reit">REIT</span><span class="badge b-mkt">MKT</span><span class="c-badge c-new">🆕 New</span></div></div>
+      <div class="tscores"><div class="srow"><span class="slbl">BREADTH</span><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span></div></div><div class="srow"><span class="slbl">HEAT</span><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl on">🔥</span></div></div></div>
+    </div>
+    <div class="tdata">
+      <div class="dp"><div class="dp-v">89.1%</div><div class="dp-l">Overall occupancy Q4 2025</div></div>
+      <div class="dp"><div class="dp-v">90%+</div><div class="dp-l">IL occupancy — first time since 2019</div></div>
+      <div class="dp"><div class="dp-v">87.7%</div><div class="dp-l">AL occupancy Q4 2025</div></div>
+      <div class="dp"><div class="dp-v">18</div><div class="dp-l">Consecutive quarters of growth</div></div>
+      <div class="dp"><div class="dp-v">95.7%</div><div class="dp-l">Active Adult stabilized occupancy</div></div>
+    </div>
+    <div class="tctx"><h4>Plain-English Context</h4><p>More seniors are living in communities right now than at any point in two decades of tracking. After COVID emptied buildings — some lost 20–30% of residents in 2020 — the recovery has not just been complete; it's exceeded pre-pandemic highs in most markets. Communities at or above 90% are essentially full, giving them pricing power and the ability to be selective about admissions. This is a seller's market for operators in most metros — a condition that's unlikely to change through at least 2028 given the supply constraints in Trend #2.</p></div>
+    <div class="tbody">
+      <div class="sbk"><h4>What's Driving It</h4><ul><li>Demand has outpaced supply for 4+ consecutive years</li><li>18 consecutive quarters where absorption exceeded new inventory</li><li>NIC projects occupancy will break 90% in 2026 — potentially the highest in 20 years of data</li><li>Active Adult communities performing like stabilized multifamily</li></ul></div>
+      <div class="sbk"><h4>Operational Implication</h4><ul><li>Communities near 90% have significant pricing leverage — use it</li><li>Waitlist management is becoming a competitive differentiator</li><li>Admissions velocity and CRM hygiene are mission-critical at this occupancy level</li><li>Leaders with real-time census dashboards are consistently outperforming peers</li></ul></div>
+    </div>
+    <div class="tangles"><h4>Eldermark Content Angles</h4><div class="apills"><span class="ap">How to manage waitlists at 90%+ occupancy</span><span class="ap">Census reporting benchmarks for 2026</span><span class="ap">CRM strategy when demand outstrips supply</span><span class="ap">Eldermark CRM: from inquiry to move-in at scale</span></div></div>
+  </div>
+
+  <div class="tcard ph" data-auds="reit ops fin" data-heat="2" data-breadth="5" data-brand="">
+    <div class="thdr">
+      <span class="tnum">T-02</span>
+      <div class="ttitle"><h3>Supply-Demand Chasm: Record-Low Construction, Record Demand</h3><div class="tbadges"><span class="badge b-reit">REIT</span><span class="badge b-ops">OPS</span><span class="badge b-fin">FIN</span><span class="c-badge c-new">🆕 New</span></div></div>
+      <div class="tscores"><div class="srow"><span class="slbl">BREADTH</span><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span></div></div><div class="srow"><span class="slbl">HEAT</span><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl">🔥</span></div></div></div>
+    </div>
+    <div class="tdata">
+      <div class="dp"><div class="dp-v">1,076</div><div class="dp-l">New units started Q1 2025 — lowest since 2009</div></div>
+      <div class="dp"><div class="dp-v">1%</div><div class="dp-l">YoY inventory growth 2025 — record low</div></div>
+      <div class="dp"><div class="dp-v">29 mo.</div><div class="dp-l">Average construction cycle (stretched)</div></div>
+      <div class="dp"><div class="dp-v">~$275B</div><div class="dp-l">Capital needed to close supply gap by 2030</div></div>
+    </div>
+    <div class="tctx"><h4>Plain-English Context</h4><p>Building senior living communities is expensive, slow, and risky — and rising interest rates over the past three years made it nearly impossible to pencil a new project financially. Construction essentially stopped. The pipeline of new communities that would normally open in 2026–2027 simply doesn't exist. Meanwhile, demand is surging. The result is a classic supply crunch: not enough buildings, too many people who need them. For existing operators, this is a golden era of pricing power. Projects breaking ground today won't open until 2028 or later — so this advantage won't erode soon.</p></div>
+    <div class="tbody">
+      <div class="sbk"><h4>What's Driving It</h4><ul><li>High interest rates, construction costs, and labor suppressed new starts</li><li>Only ~4,000 units delivered annually vs. 12,000+ needed</li><li>Over 50% of NIC's 140 tracked metros have zero projects underway</li><li>Projects breaking ground in 2026 won't open until 2028+</li></ul></div>
+      <div class="sbk"><h4>Operational Implication</h4><ul><li>Existing operators are in an exceptionally favorable market position</li><li>Communities optimizing operations now will dominate as demand peaks 2027–2030</li><li>Acquisition is the primary growth vehicle — organic expansion is largely impossible</li><li>Pricing power will be sustained through at least 2028</li></ul></div>
+    </div>
+    <div class="tangles"><h4>Eldermark Content Angles</h4><div class="apills"><span class="ap">The supply gap: what it means for your 2026 strategy</span><span class="ap">Maximize revenue per occupied unit with Eldermark Billing</span><span class="ap">Acquisition diligence: what data do you need before you buy?</span><span class="ap">How predictive analytics reduces costly vacancy days</span></div></div>
+  </div>
+
+  <div class="tcard ph" data-auds="ops don mkt reit" data-heat="3" data-breadth="5" data-brand="">
+    <div class="thdr">
+      <span class="tnum">T-03</span>
+      <div class="ttitle"><h3>The 80+ Wave: First Boomers Hit Peak Acuity Age in 2026</h3><div class="tbadges"><span class="badge b-ops">OPS</span><span class="badge b-don">DON</span><span class="badge b-mkt">MKT</span><span class="badge b-reit">REIT</span><span class="c-badge c-new">🆕 New</span></div></div>
+      <div class="tscores"><div class="srow"><span class="slbl">BREADTH</span><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span></div></div><div class="srow"><span class="slbl">HEAT</span><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl on">🔥</span></div></div></div>
+    </div>
+    <div class="tdata">
+      <div class="dp"><div class="dp-v">14.7M</div><div class="dp-l">Americans 80+ today</div></div>
+      <div class="dp"><div class="dp-v">18.8M</div><div class="dp-l">By 2030 (+28%)</div></div>
+      <div class="dp"><div class="dp-v">23M</div><div class="dp-l">By 2035 (+55%)</div></div>
+      <div class="dp"><div class="dp-v">2026</div><div class="dp-l">First Boomers turn 80</div></div>
+    </div>
+    <div class="tctx"><h4>Plain-English Context</h4><p>The Baby Boomer generation — 75 million people born 1946–1964 — starts turning 80 in 2026. Age 80 is when need for assisted living and memory care rises sharply. The industry has been preparing for this for a decade; it's no longer coming — it is here, growing every month. Unlike previous generations, Boomers are more digitally savvy, more consumer-oriented, and more likely to research options online (including via AI tools) before making a decision. Their expectations for technology, transparency, and personalization are higher than any prior senior living cohort.</p></div>
+    <div class="tbody">
+      <div class="sbk"><h4>What's Driving It</h4><ul><li>75.4M Boomers — oldest hit 80 in 2026, youngest hit 80 in 2044</li><li>80+ cohort is highest-acuity, highest-need segment in senior living</li><li>Alzheimer's diagnoses projected to rise significantly through 2040</li><li>Demand remains robust through at least 2040</li></ul></div>
+      <div class="sbk"><h4>Operational Implication</h4><ul><li>Memory care demand will surge — communities without MC capability face risk</li><li>EHR and eMAR accuracy become critical as care complexity increases</li><li>Marketing must evolve to meet Boomer digital expectations (AI search, virtual tours)</li><li>Higher care intensity per resident, but longer potential length of stay</li></ul></div>
+    </div>
+    <div class="tangles"><h4>Eldermark Content Angles</h4><div class="apills"><span class="ap">Is your community ready for the 80+ wave?</span><span class="ap">Memory care capacity planning: a data-driven approach</span><span class="ap">Eldermark eMAR for complex multi-condition residents</span><span class="ap">What Boomer consumers expect from senior living technology</span></div></div>
+  </div>
+</div>
+
+<!-- SECTION 2: CARE OPS -->
+<div class="section-wrap" id="s-care">
+  <div class="sec-hdr"><span class="ico">🏥</span><h2>Care Operations &amp; Clinical</h2><span class="sc">Trends 4, 8, 10, 12</span></div>
+
+  <div class="tcard ph" data-auds="don ops fin" data-heat="2" data-breadth="4" data-brand="dining">
+    <div class="thdr">
+      <span class="tnum">T-04</span>
+      <div class="ttitle"><h3>Higher-Acuity Residents Are the New Normal in AL &amp; Memory Care</h3><div class="tbadges"><span class="badge b-don">DON</span><span class="badge b-ops">OPS</span><span class="badge b-fin">FIN</span><span class="badge b-dining">🍽️ Dining</span><span class="c-badge c-new">🆕 New</span></div></div>
+      <div class="tscores"><div class="srow"><span class="slbl">BREADTH</span><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd"></span></div></div><div class="srow"><span class="slbl">HEAT</span><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl">🔥</span></div></div></div>
+    </div>
+    <div class="tdata">
+      <div class="dp"><div class="dp-v">Multi-Dx</div><div class="dp-l">New residents arriving with multiple chronic conditions</div></div>
+      <div class="dp"><div class="dp-v">↑ Tx Diets</div><div class="dp-l">Therapeutic diet complexity rising with acuity</div></div>
+      <div class="dp"><div class="dp-v">38%</div><div class="dp-l">New AL units designed 2-bed or larger (was 14%)</div></div>
+    </div>
+    <div class="tctx"><h4>Plain-English Context</h4><p>The typical new AL resident today often has multiple chronic conditions, takes 8–12 medications, and may have delayed the move-in decision until a health crisis forced it. Growth of home health services enables families to keep loved ones home longer — meaning by the time they arrive at a community, their care needs are significantly higher. This affects nursing staff ratios, billing complexity, and dining services: more residents arrive needing therapeutic diets (modified textures, renal, cardiac, diabetic) that require precise management at scale.</p></div>
+    <div class="tbody">
+      <div class="sbk"><h4>What's Driving It</h4><ul><li>People moving in later, as crisis decisions, with complex needs on arrival</li><li>Growth of home health delays but doesn't prevent institutionalization</li><li>Alzheimer's/dementia caseloads growing across all AL settings</li><li>More therapeutic diet requirements as chronic conditions multiply</li></ul></div>
+      <div class="sbk"><h4>Operational Implication</h4><ul><li>Point-of-care documentation accuracy is now a safety imperative</li><li>Flat-rate pricing no longer covers true cost of care for high-acuity residents</li><li>Dining teams face more complex therapeutic diet management with same or fewer staff</li><li>eMAR adherence and incident tracking matter more than ever</li></ul></div>
+    </div>
+    <div class="tangles"><h4>Eldermark Content Angles</h4><div class="apills"><span class="ap">Acuity-based pricing: how to build a model that works</span><span class="ap">Why eMAR accuracy directly impacts resident safety</span><span class="ap">How ElderSmarts flags acuity drift before a crisis</span><span class="ap">eMenuChoice: therapeutic diet management at scale</span></div></div>
+  </div>
+
+  <div class="tcard ph" data-auds="don ops fin" data-heat="2" data-breadth="5" data-brand="dining">
+    <div class="thdr">
+      <span class="tnum">T-08</span>
+      <div class="ttitle"><h3>Workforce Crisis: CNA &amp; Nursing Shortage Is Structural, Not Cyclical</h3><div class="tbadges"><span class="badge b-don">DON</span><span class="badge b-ops">OPS</span><span class="badge b-fin">FIN</span><span class="badge b-dining">🍽️ Dining</span><span class="c-badge c-new">🆕 New</span></div></div>
+      <div class="tscores"><div class="srow"><span class="slbl">BREADTH</span><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span></div></div><div class="srow"><span class="slbl">HEAT</span><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl">🔥</span></div></div></div>
+    </div>
+    <div class="tdata">
+      <div class="dp"><div class="dp-v">56.1%</div><div class="dp-l">Of operating budget consumed by labor</div></div>
+      <div class="dp"><div class="dp-v">96%</div><div class="dp-l">Of orgs report staffing cost increase in past year</div></div>
+      <div class="dp"><div class="dp-v">35%</div><div class="dp-l">Say staffing will NEVER return to pre-pandemic levels</div></div>
+      <div class="dp"><div class="dp-v">25%</div><div class="dp-l">Of single-site communities limiting admissions due to staffing</div></div>
+    </div>
+    <div class="tctx"><h4>Plain-English Context</h4><p>CNAs are the frontline caregivers who assist residents with daily activities. Average pay under $40K/year, physically exhausting, emotionally demanding, with limited advancement. Turnover is so severe some communities replace their entire CNA staff every 2–3 years. 1 in 4 single-site communities is turning away new residents because they don't have enough staff — even when beds are empty. The dining and food service side mirrors this: dietary aides and cooks are among the hardest-to-fill positions, and turnover in kitchen staff directly impacts meal quality and therapeutic diet compliance.</p></div>
+    <div class="tbody">
+      <div class="sbk"><h4>What's Driving It</h4><ul><li>CNA average pay under $40K/yr; 34% depend on public assistance</li><li>High physical and emotional demands, limited advancement pathways</li><li>Rural areas hit hardest; LPN shortage projected at 300,000+ by mid-2030s</li><li>Dietary aide and cook vacancies directly impact dining program quality</li></ul></div>
+      <div class="sbk"><h4>Operational Implication</h4><ul><li>Technology must compensate for staff gaps — AI and automation are essential</li><li>Strong culture + pay + advancement wins the talent war</li><li>Capacity constrained by staffing, not beds — real revenue risk</li><li>Menu simplification and cross-training help dining teams cope with vacancies</li></ul></div>
+    </div>
+    <div class="tangles"><h4>Eldermark Content Angles</h4><div class="apills"><span class="ap">How to reduce documentation burden on nursing staff</span><span class="ap">Technology as a retention tool: reducing friction</span><span class="ap">The real cost of CNA turnover — and how to measure it</span><span class="ap">eMenuChoice: streamlining dining ops with fewer staff</span></div></div>
+  </div>
+
+  <div class="tcard pm" data-auds="don ops" data-heat="2" data-breadth="3" data-brand="dining">
+    <div class="thdr">
+      <span class="tnum">T-10</span>
+      <div class="ttitle"><h3>EHR &amp; Data Integration: The Person-Centric Platform Imperative</h3><div class="tbadges"><span class="badge b-don">DON</span><span class="badge b-ops">OPS</span><span class="badge b-dining">🍽️ Dining</span><span class="c-badge c-new">🆕 New</span></div></div>
+      <div class="tscores"><div class="srow"><span class="slbl">BREADTH</span><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd"></span><span class="bd"></span></div></div><div class="srow"><span class="slbl">HEAT</span><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl">🔥</span></div></div></div>
+    </div>
+    <div class="tdata">
+      <div class="dp"><div class="dp-v">Unified</div><div class="dp-l">Clinical + engagement + dining in one record</div></div>
+      <div class="dp"><div class="dp-v">Real-time</div><div class="dp-l">Continuous risk stratification vs. episodic assessments</div></div>
+      <div class="dp"><div class="dp-v">Early Signal</div><div class="dp-l">Appetite changes visible days before clinical deterioration</div></div>
+    </div>
+    <div class="tctx"><h4>Plain-English Context</h4><p>Most communities run disconnected systems: one for nursing, one for activities, one for dining, another for billing. A resident's clinical record has no idea whether she skipped breakfast, stopped attending the dining room, or is eating less. Research shows that dining participation and appetite changes are early warning signs of health decline — often visible days before any vital sign changes. Communities integrating dining software with EHR are catching problems earlier, reducing hospitalizations, and strengthening their clinical differentiation story.</p></div>
+    <div class="tbody">
+      <div class="sbk"><h4>What's Driving It</h4><ul><li>Appetite and dining pattern changes are proven early clinical warning signals</li><li>Value-based care requires longitudinal data across clinical and non-clinical domains</li><li>Operators want single-platform vendors — point solutions are being consolidated</li><li>Family transparency expectations are increasing; dining data is part of that story</li></ul></div>
+      <div class="sbk"><h4>Operational Implication</h4><ul><li>Fragmented tech stacks create dangerous clinical blind spots</li><li>Dining software that integrates with EHR is now a clinical — not just operational — priority</li><li>Communities with unified data catch decline before crisis and reduce hospitalizations</li><li>Single-platform purchasing is becoming the norm; isolated dining software is at risk</li></ul></div>
+    </div>
+    <div class="tangles"><h4>Eldermark Content Angles</h4><div class="apills"><span class="ap">Why EHR data silos are costing you care quality</span><span class="ap">Dining as a clinical early-warning signal</span><span class="ap">The all-in-one platform advantage: Eldermark + eMenuChoice</span><span class="ap">From reactive to proactive: preventing hospitalizations with dining data</span></div></div>
+  </div>
+
+  <div class="tcard pm" data-auds="ops don mkt" data-heat="2" data-breadth="3" data-brand="">
+    <div class="thdr">
+      <span class="tnum">T-12</span>
+      <div class="ttitle"><h3>Blended &amp; Flexible Care Models: Moving Beyond Rigid Care Levels</h3><div class="tbadges"><span class="badge b-ops">OPS</span><span class="badge b-don">DON</span><span class="badge b-mkt">MKT</span><span class="c-badge c-new">🆕 New</span></div></div>
+      <div class="tscores"><div class="srow"><span class="slbl">BREADTH</span><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd"></span><span class="bd"></span></div></div><div class="srow"><span class="slbl">HEAT</span><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl">🔥</span></div></div></div>
+    </div>
+    <div class="tdata">
+      <div class="dp"><div class="dp-v">Needs-Based</div><div class="dp-l">Grouping by care needs, not IL/AL/MC labels</div></div>
+      <div class="dp"><div class="dp-v">Interest-Based</div><div class="dp-l">Community design shifting toward lifestyle groupings</div></div>
+    </div>
+    <div class="tctx"><h4>Plain-English Context</h4><p>The traditional IL/AL/MC buckets don't reflect how real people age. A person might be physically capable but have early dementia. Another might need significant physical help but be cognitively sharp. The rigid system creates awkward transitions, inappropriate care levels, and billing mismatches. Forward-thinking operators are experimenting with care models organized around what someone actually needs and is interested in — with billing and staffing that adapt as the person changes over time.</p></div>
+    <div class="tbody">
+      <div class="sbk"><h4>What's Driving It</h4><ul><li>Residents' needs don't fit neatly into IL/AL/MC labels</li><li>Aging-in-place expectations — residents want to stay as needs evolve</li><li>Higher-acuity AL residents need services overlapping with skilled nursing</li><li>Boomer consumer preference for autonomy and personalization</li></ul></div>
+      <div class="sbk"><h4>Operational Implication</h4><ul><li>Care plans must be dynamic — static annual assessments are obsolete</li><li>Billing must accommodate fluid service bundles, not flat-fee care levels</li><li>Staff must be cross-trained across a broader acuity range</li><li>Compliance reporting must track individualized plans at scale</li></ul></div>
+    </div>
+    <div class="tangles"><h4>Eldermark Content Angles</h4><div class="apills"><span class="ap">The end of rigid care levels: what comes next?</span><span class="ap">How to bill for blended care without revenue leakage</span><span class="ap">Flexible care planning in Eldermark EHR</span><span class="ap">Aging in place: technology that supports evolving needs</span></div></div>
+  </div>
+</div>
+
+<!-- SECTION 3: FINANCE -->
+<div class="section-wrap" id="s-finance">
+  <div class="sec-hdr"><span class="ico">💰</span><h2>Finance &amp; Revenue</h2><span class="sc">Trends 5, 6, 11</span></div>
+
+  <div class="tcard ph" data-auds="fin ops mkt" data-heat="2" data-breadth="4" data-brand="">
+    <div class="thdr">
+      <span class="tnum">T-05</span>
+      <div class="ttitle"><h3>Rental Rate Stabilization, Dynamic Pricing &amp; Operating Margin Recovery</h3><div class="tbadges"><span class="badge b-fin">FIN</span><span class="badge b-ops">OPS</span><span class="badge b-mkt">MKT</span><span class="c-badge c-new">🆕 New</span></div></div>
+      <div class="tscores"><div class="srow"><span class="slbl">BREADTH</span><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd"></span></div></div><div class="srow"><span class="slbl">HEAT</span><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl">🔥</span></div></div></div>
+    </div>
+    <div class="tdata">
+      <div class="dp"><div class="dp-v">4–7%</div><div class="dp-l">Projected annual rate growth 2026</div></div>
+      <div class="dp"><div class="dp-v">$6,690</div><div class="dp-l">Memory care median monthly (2025)</div></div>
+      <div class="dp"><div class="dp-v">$5,419</div><div class="dp-l">AL median monthly (2025)</div></div>
+      <div class="dp"><div class="dp-v">25%+</div><div class="dp-l">Avg operating margin mid-2025 — highest since 2018</div></div>
+    </div>
+    <div class="tctx"><h4>Plain-English Context</h4><p>The post-COVID era of 10–15% annual rate hikes is ending. A 4–7% annual increase is the new sustainable norm. The more interesting story is dynamic pricing: some operators are beginning to adopt hotel-style revenue management — rates that flex with availability, unit type, and demand. Communities don't have to charge the same rate for every apartment, and don't have to keep rates flat when demand is highest. This is a meaningful margin lever that most operators haven't yet explored.</p></div>
+    <div class="tbody">
+      <div class="sbk"><h4>What's Driving It</h4><ul><li>Post-COVID double-digit increases normalizing to sustainable 4–7%</li><li>High-demand markets piloting dynamic/revenue management pricing</li><li>Memory care demand is less price-elastic — pricing leverage remains strong</li><li>Operating margins at 25%+ — validating investment and operational decisions</li></ul></div>
+      <div class="sbk"><h4>Operational Implication</h4><ul><li>Revenue integrity — are you capturing every billable service? Leakage is significant</li><li>Rate setting must be data-driven: competitive analysis + acuity cost modeling</li><li>CFOs scrutinizing margin per occupied unit, not just top-line rate</li><li>Dynamic pricing requires real-time CRM and pricing tools integrated with billing</li></ul></div>
+    </div>
+    <div class="tangles"><h4>Eldermark Content Angles</h4><div class="apills"><span class="ap">Dynamic pricing 101 for senior living operators</span><span class="ap">Revenue leakage: the silent margin killer in senior living billing</span><span class="ap">Eldermark Billing: capturing every chargeable service automatically</span><span class="ap">ePay adoption: reducing A/R days in senior living</span></div></div>
+  </div>
+
+  <div class="tcard ph" data-auds="ops fin mkt" data-heat="2" data-breadth="4" data-brand="">
+    <div class="thdr">
+      <span class="tnum">T-06</span>
+      <div class="ttitle"><h3>Middle-Market Affordability Crisis: The "Missing Middle" Reaches Boiling Point</h3><div class="tbadges"><span class="badge b-ops">OPS</span><span class="badge b-fin">FIN</span><span class="badge b-mkt">MKT</span><span class="c-badge c-new">🆕 New</span></div></div>
+      <div class="tscores"><div class="srow"><span class="slbl">BREADTH</span><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd"></span></div></div><div class="srow"><span class="slbl">HEAT</span><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl">🔥</span></div></div></div>
+    </div>
+    <div class="tdata">
+      <div class="dp"><div class="dp-v">54%</div><div class="dp-l">Middle-income seniors unable to afford AL by 2033</div></div>
+      <div class="dp"><div class="dp-v">$415B</div><div class="dp-l">Estimated investment opportunity in middle-market</div></div>
+      <div class="dp"><div class="dp-v">#1</div><div class="dp-l">Affordability = top family concern (A Place for Mom, Feb 2026)</div></div>
+    </div>
+    <div class="tctx"><h4>Plain-English Context</h4><p>The "missing middle" — people with moderate savings and a Social Security check — earn too much to qualify for Medicaid but not enough to afford median AL rates. NORC research found that by 2033, 54% of middle-income seniors will be financially unable to afford assisted living. A Place for Mom's February 2026 survey found affordability is now the #1 concern for families searching for senior living. This is simultaneously a crisis for individuals and a $415B market opportunity for operators who can figure out how to serve this segment profitably.</p></div>
+    <div class="tbody">
+      <div class="sbk"><h4>What's Driving It</h4><ul><li>Rates rising faster than middle-income fixed retirement income can support</li><li>Home care costs also rising ($34/hr median in 2025)</li><li>Families delaying moves until crisis — arriving higher-acuity and costing more</li><li>Only 18% of families understand senior living costs before starting their search</li></ul></div>
+      <div class="sbk"><h4>Operational Implication</h4><ul><li>Operators serving the middle market will have a sustained demand pipeline</li><li>Operational efficiency — not luxury amenities — is the differentiator here</li><li>Transparent pricing and financial counseling tools are marketing advantages</li><li>Business model design: mixed-payer, mixed-acuity, creative service bundling</li></ul></div>
+    </div>
+    <div class="tangles"><h4>Eldermark Content Angles</h4><div class="apills"><span class="ap">The missing middle: can your community serve them profitably?</span><span class="ap">Business model design for sustainable senior living operations</span><span class="ap">Transparent pricing as a competitive differentiator</span><span class="ap">Eldermark Business Model Design: built for sustainable margins</span></div></div>
+  </div>
+
+  <div class="tcard ph" data-auds="fin ops don" data-heat="3" data-breadth="5" data-brand="">
+    <div class="thdr">
+      <span class="tnum">T-11</span>
+      <div class="ttitle"><h3>Medicaid Cuts &amp; Regulatory Headwinds: "One Big Beautiful Bill" Impact</h3><div class="tbadges"><span class="badge b-fin">FIN</span><span class="badge b-ops">OPS</span><span class="badge b-don">DON</span><span class="c-badge c-new">🆕 New</span></div></div>
+      <div class="tscores"><div class="srow"><span class="slbl">BREADTH</span><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span></div></div><div class="srow"><span class="slbl">HEAT</span><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl on">🔥</span></div></div></div>
+    </div>
+    <div class="tdata">
+      <div class="dp"><div class="dp-v">$1T+</div><div class="dp-l">Medicaid cuts over 10 years — signed July 4, 2025</div></div>
+      <div class="dp"><div class="dp-v">11.8M</div><div class="dp-l">Americans projected to lose coverage by 2034</div></div>
+      <div class="dp"><div class="dp-v">2034</div><div class="dp-l">SNF staffing mandate delayed until 2034</div></div>
+      <div class="dp"><div class="dp-v">5.06%</div><div class="dp-l">Medicare Advantage capitation rate increase 2026</div></div>
+    </div>
+    <div class="tctx"><h4>Plain-English Context</h4><p>Medicaid funds long-term care for lower-income Americans. The "One Big Beautiful Bill" cut over $1 trillion from Medicaid over 10 years — the biggest cut in the program's history. Most AL runs on private pay and is somewhat insulated. However, many AL communities rely on state Medicaid waiver programs to serve lower-income residents — those programs are now at serious financial risk. SNFs face the most acute exposure. New work requirements (80 hrs/month, effective Dec 31, 2026) and biannual eligibility rechecks (effective Jan 1, 2027) add administrative complexity across the board.</p></div>
+    <div class="tbody">
+      <div class="sbk"><h4>What's Driving It</h4><ul><li>OBBB signed July 4, 2025 — sweeping federal Medicaid cuts now in effect</li><li>80-hr/month work requirements for Medicaid ages 19–64, effective Dec 31, 2026</li><li>Eligibility rechecks every 6 months (from 12) starting Jan 1, 2027</li><li>HCBS expected to be cut first by states facing revenue shortfalls</li></ul></div>
+      <div class="sbk"><h4>Operational Implication</h4><ul><li>AL operators insulated but not immune — state waiver programs at risk</li><li>Payer diversification toward private-pay and Medicare Advantage is urgent</li><li>MA capitation rate increase (+5.06%) offers a partial and growing offset</li><li>SNF operators face direct reimbursement erosion — admission pipeline could shrink</li></ul></div>
+    </div>
+    <div class="tangles"><h4>Eldermark Content Angles</h4><div class="apills"><span class="ap">What Medicaid cuts mean for your community's financial model</span><span class="ap">Diversifying payer mix: a practical guide for AL operators</span><span class="ap">Medicare Advantage in senior living: opportunity or complexity?</span><span class="ap">Compliance tracking as Medicaid rules shift — how Eldermark helps</span></div></div>
+  </div>
+</div>
+
+<!-- SECTION 4: REIT -->
+<div class="section-wrap" id="s-reit">
+  <div class="sec-hdr"><span class="ico">🏦</span><h2>REIT &amp; Investment</h2><span class="sc">Trend 7</span></div>
+  <div class="tcard pm" data-auds="reit fin" data-heat="3" data-breadth="5" data-brand="">
+    <div class="thdr">
+      <span class="tnum">T-07</span>
+      <div class="ttitle"><h3>REIT &amp; Investment Surge: Capital Reopening After a 3-Year Freeze</h3><div class="tbadges"><span class="badge b-reit">REIT</span><span class="badge b-fin">FIN</span><span class="c-badge c-new">🆕 New</span></div></div>
+      <div class="tscores"><div class="srow"><span class="slbl">BREADTH</span><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span></div></div><div class="srow"><span class="slbl">HEAT</span><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl on">🔥</span></div></div></div>
+    </div>
+    <div class="tdata">
+      <div class="dp"><div class="dp-v">$21.8B</div><div class="dp-l">Rolling 4-qtr transaction volume — up 40%+ YoY</div></div>
+      <div class="dp"><div class="dp-v">$6.2B</div><div class="dp-l">Welltower deployed in Q1 2025 alone</div></div>
+      <div class="dp"><div class="dp-v">71%</div><div class="dp-l">Of professionals expect cap rates to decrease in 2026</div></div>
+      <div class="dp"><div class="dp-v">+10%</div><div class="dp-l">Senior living valuations YoY in 2025</div></div>
+    </div>
+    <div class="tctx"><h4>Plain-English Context</h4><p>Real Estate Investment Trusts (REITs) are publicly traded companies that own senior living facilities and lease them to operators. High interest rates from 2022–2024 froze most transaction activity. In 2025, that thawed dramatically: Welltower invested more in one quarter than in all of 2024 combined. This signals extremely high institutional confidence in senior housing's long-term prospects. For operators, this means more potential acquirers, more capital partners, and more competitive pressure from well-funded scaled players backed by institutional capital.</p></div>
+    <div class="tbody">
+      <div class="sbk"><h4>What's Driving It</h4><ul><li>Welltower and Ventas leading aggressive acquisition campaigns</li><li>Cap rates compressed 25–50 bps; 71% of investors expect further compression</li><li>Operating margins at 25%+ validating the investment thesis</li><li>Demographic demand runway through 2040 provides long-term yield confidence</li></ul></div>
+      <div class="sbk"><h4>Operational Implication</h4><ul><li>REIT-backed operators face performance benchmarking pressure</li><li>Clean financial reporting and real-time analytics are table stakes for REIT partners</li><li>Independent operators need acquisition-ready data rooms</li><li>M&amp;A activity means competitive pressure from well-capitalized scaled players</li></ul></div>
+    </div>
+    <div class="tangles"><h4>Eldermark Content Angles</h4><div class="apills"><span class="ap">What REIT investors want to see in your operational data</span><span class="ap">How to prepare your community for acquisition due diligence</span><span class="ap">Real-time KPI reporting: what best-in-class looks like</span><span class="ap">ElderSmarts: the analytics layer that impresses investors</span></div></div>
+  </div>
+</div>
+
+<!-- SECTION 5: TECH -->
+<div class="section-wrap" id="s-tech">
+  <div class="sec-hdr"><span class="ico">🤖</span><h2>Technology &amp; AI</h2><span class="sc">Trend 9</span></div>
+  <div class="tcard ph" data-auds="ops don mkt fin" data-heat="3" data-breadth="4" data-brand="dining">
+    <div class="thdr">
+      <span class="tnum">T-09</span>
+      <div class="ttitle"><h3>AI Adoption: Moving from "Exploring" to "Executing" in 2026</h3><div class="tbadges"><span class="badge b-ops">OPS</span><span class="badge b-don">DON</span><span class="badge b-mkt">MKT</span><span class="badge b-fin">FIN</span><span class="badge b-dining">🍽️ Dining</span><span class="c-badge c-new">🆕 New</span></div></div>
+      <div class="tscores"><div class="srow"><span class="slbl">BREADTH</span><div class="bdots"><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd f"></span><span class="bd"></span></div></div><div class="srow"><span class="slbl">HEAT</span><div class="flames"><span class="fl on">🔥</span><span class="fl on">🔥</span><span class="fl on">🔥</span></div></div></div>
+    </div>
+    <div class="tdata">
+      <div class="dp"><div class="dp-v">4.5%</div><div class="dp-l">Orgs actively using AI (up from 3.1% in 2024)</div></div>
+      <div class="dp"><div class="dp-v">AI Search</div><div class="dp-l">Reshaping how families find communities</div></div>
+      <div class="dp"><div class="dp-v">Menu AI</div><div class="dp-l">AI-driven menu optimization emerging in dining</div></div>
+    </div>
+    <div class="tctx"><h4>Plain-English Context</h4><p>The industry is shifting from "we should explore AI" to "what problems can AI actually solve today?" Three use cases are gaining real traction: predictive analytics (flagging hospitalization and fall risk before a crisis), documentation automation (reducing nursing documentation burden), and AI search — families now use ChatGPT and Perplexity to research communities, and those not appearing in AI-generated answers are losing leads they don't know exist. In dining, AI-driven menu optimization is emerging as a tool for cost control and nutritional compliance at scale.</p></div>
+    <div class="tbody">
+      <div class="sbk"><h4>What's Driving It</h4><ul><li>AI tools moving from experimentation to daily operational use</li><li>Staffing crisis makes AI-driven efficiency an operational necessity</li><li>Families using AI search (ChatGPT, Perplexity) to find communities NOW</li><li>AI menu optimization helps dining teams do more with fewer staff</li></ul></div>
+      <div class="sbk"><h4>Operational Implication</h4><ul><li>SEO strategy must now account for AI answer engines, not just Google rankings</li><li>Structured, factual content is what AI surfaces — vague marketing copy is invisible</li><li>Predictive analytics for hospitalization and fall risk have proven ROI</li><li>AI hype tolerance is dropping — leaders ask "what problem does this solve?"</li></ul></div>
+    </div>
+    <div class="tangles"><h4>Eldermark Content Angles</h4><div class="apills"><span class="ap">How AI search changes senior living marketing in 2026</span><span class="ap">Beyond the hype: AI use cases with real ROI</span><span class="ap">ElderSmarts: predictive analytics built for senior living</span><span class="ap">AI-driven fall risk and hospitalization prediction in AL</span><span class="ap">eMenuChoice: AI-powered menu planning and cost optimization</span></div></div>
+  </div>
+</div>
+
+</div>
+
+<footer>
+  <h3>Sources</h3>
+  <a href="https://www.nicmap.com/blog/senior-housing-five-key-trends-to-watch-in-2026/">NIC MAP Vision — Senior Housing: Five Key Trends to Watch in 2026</a><br>
+  <a href="https://seniorhousingnews.com/2026/01/05/top-senior-living-trends-for-2026/">Senior Housing News — Top Senior Living Trends for 2026</a><br>
+  <a href="https://www.mcknightsseniorliving.com/home/columns/marketplace-columns/opportunities-and-headwinds-mark-expanding-longevity-economy-in-2026/">McKnight's Senior Living — Longevity Economy 2026</a><br>
+  <a href="https://seniorhousingnews.com/2025/09/08/how-senior-living-operators-go-beyond-hype-of-ai-other-new-tech/">Senior Housing News — AI Beyond the Hype</a><br>
+  <a href="https://www.pwc.com/us/en/industries/financial-services/asset-wealth-management/real-estate/emerging-trends-in-real-estate-pwc-uli/property-type-outlook/senior-housing.html">PwC/ULI — Emerging Trends in Real Estate: Senior Housing 2026</a><br>
+  <a href="https://www.multihousingnews.com/senior-living-trends/">Multi-Housing News — 2026 Senior Living Trends</a><br>
+  <a href="https://www.cushmanwakefield.com/en/united-states/insights/senior-living-and-care-investor-survey-and-trends-report">Cushman &amp; Wakefield — 2025 Senior Living &amp; Care Investor Survey</a><br>
+  <a href="https://seniorhousingnews.com/2025/10/20/senior-living-operators-shift-plans-as-medicaid-cuts-imperil-state-waiver-programs/">Senior Housing News — Medicaid Cuts Imperil State Waiver Programs</a><br>
+  <a href="https://seniorhousingnews.com/2026/02/19/senior-living-affordability-number-one-concern-for-families-prospects/">Senior Housing News — Affordability No. 1 Concern (Feb 2026)</a><br>
+  <a href="https://www.credaily.com/briefs/seniors-housing-demand-fuels-reit-investment-surge/">CRE Daily — Seniors Housing Demand Fuels REIT Investment Surge</a><br>
+  <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12138329/">PMC / The Gerontologist — A Looming Disaster: The CNA Staffing Shortage</a><br>
+  <a href="https://www.jll.com/en-us/insights/market-perspectives/seniors-housing-care-investor-survey-and-trend-outlook">JLL — 2025 Seniors Housing &amp; Care Investor Survey</a>
+</footer>
+
+<script>
+const AF={aud:new Set(),heat:new Set(),breadth:new Set(),brand:new Set()};
+
+function tf(b){
+  const f=b.dataset.f,v=b.dataset.v;
+  if(AF[f].has(v)){AF[f].delete(v);b.classList.remove('on','on-hot','on-dining');}
+  else{AF[f].add(v);b.classList.add(f==='heat'&&v==='3'?'on-hot':f==='brand'?'on-dining':'on');}
+  apf();
+}
+function cf(){
+  Object.values(AF).forEach(s=>s.clear());
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('on','on-hot','on-dining'));
+  apf();
+}
+function matches(el){
+  const auds=(el.dataset.auds||'').split(' ');
+  const heat=el.dataset.heat;
+  const breadth=el.dataset.breadth;
+  const brand=(el.dataset.brand||'').split(' ').filter(Boolean);
+  const nf=AF.aud.size===0&&AF.heat.size===0&&AF.breadth.size===0&&AF.brand.size===0;
+  if(nf)return true;
+  const am=AF.aud.size===0||auds.some(a=>AF.aud.has(a));
+  const hm=AF.heat.size===0||AF.heat.has(heat);
+  const bm=AF.breadth.size===0||AF.breadth.has(breadth);
+  const dm=AF.brand.size===0||AF.brand.has('dining')&&brand.includes('dining');
+  return am&&hm&&bm&&dm;
+}
+function apf(){
+  let any=false;
+  // cards
+  document.querySelectorAll('.tcard').forEach(c=>{
+    const show=matches(c);
+    c.classList.toggle('hidden-card',!show);
+    if(show)any=true;
+  });
+  // table rows
+  document.querySelectorAll('#stbl tbody tr').forEach(r=>{
+    r.classList.toggle('hr',!matches(r));
+  });
+  // section wrappers
+  document.querySelectorAll('.section-wrap').forEach(s=>{
+    const cards=s.querySelectorAll('.tcard');
+    s.classList.toggle('all-hidden',Array.from(cards).every(c=>c.classList.contains('hidden-card')));
+  });
+  // hot panel items
+  const hasAud=AF.aud.size>0;
+  document.querySelectorAll('.hot-item').forEach(i=>{
+    if(!hasAud){i.style.display='';return;}
+    const a=(i.dataset.auds||'').split(' ');
+    i.style.display=a.some(x=>AF.aud.has(x))?'':'none';
+  });
+  // dining panel
+  const showDining=AF.brand.size===0||AF.brand.has('dining');
+  document.getElementById('dining-panel').style.display=showDining?'':'none';
+  document.getElementById('no-results-msg'||'nores').classList.toggle('visible',!any&&(AF.aud.size>0||AF.heat.size>0||AF.breadth.size>0||AF.brand.size>0));
+}
+</script>
+</body>
+</html>
