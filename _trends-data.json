@@ -1,35 +1,242 @@
 {
   "meta": {
-    "schema_version": "1.0",
-    "description": "Trend continuity data for Senior Living Industry Updates. Read by the scheduled task to assign Rising/Cooling/Still Hot badges on each new report run.",
-    "last_updated": "2026-04-01",
-    "report_count": 3
+    "last_updated": "2026-05-11",
+    "report_count": 2,
+    "brands": ["eldermark", "emenu"],
+    "note": "Edition 2 — trend continuity rebuilt from Edition 1 (2026-03-25). Edition 1 badges applied based on known ongoing trend history."
   },
   "trends": [
-    { "id": "T-01", "name": "Senior Housing Occupancy at Historic Highs", "category": "Market", "product": "eldermark", "heat": 3, "breadth": 5, "first_seen": "2026-03-06", "last_seen": "2026-04-01", "history": [{ "date": "2026-03-06", "heat": 3, "breadth": 5, "badge": "new" }, { "date": "2026-03-25", "heat": 3, "breadth": 5, "badge": "still_hot" }, { "date": "2026-04-01", "heat": 3, "breadth": 5, "badge": "still_hot" }] },
-    { "id": "T-02", "name": "Medicare Advantage Denials Crisis", "category": "Regulatory", "product": "eldermark", "heat": 3, "breadth": 4, "first_seen": "2026-03-06", "last_seen": "2026-04-01", "history": [{ "date": "2026-03-06", "heat": 3, "breadth": 3, "badge": "new" }, { "date": "2026-03-25", "heat": 3, "breadth": 4, "badge": "still_hot" }, { "date": "2026-04-01", "heat": 3, "breadth": 4, "badge": "still_hot" }] },
-    { "id": "T-03", "name": "AI Infrastructure Gap Blocking Adoption", "category": "Technology", "product": "eldermark", "heat": 3, "breadth": 4, "first_seen": "2026-03-06", "last_seen": "2026-04-01", "history": [{ "date": "2026-03-06", "heat": 3, "breadth": 4, "badge": "new" }, { "date": "2026-03-25", "heat": 3, "breadth": 4, "badge": "still_hot" }, { "date": "2026-04-01", "heat": 3, "breadth": 4, "badge": "still_hot" }] },
-    { "id": "T-04", "name": "Falls Prevention AI Delivers Breakthrough Results", "category": "Clinical", "product": "eldermark", "heat": 2, "breadth": 4, "first_seen": "2026-03-25", "last_seen": "2026-04-01", "history": [{ "date": "2026-03-25", "heat": 3, "breadth": 4, "badge": "new" }, { "date": "2026-04-01", "heat": 2, "breadth": 4, "badge": "cooling" }] },
-    { "id": "T-05", "name": "Middle-Income Affordability Crisis Intensifies", "category": "Market", "product": "both", "heat": 3, "breadth": 4, "first_seen": "2026-03-25", "last_seen": "2026-03-25", "consecutive_absences": 1, "note": "Absent from Edition 3. Remove after 3 consecutive absences.", "history": [{ "date": "2026-03-25", "heat": 3, "breadth": 4, "badge": "new" }] },
-    { "id": "T-06", "name": "PE Consolidation Wave", "category": "Finance", "product": "eldermark", "heat": 3, "breadth": 5, "first_seen": "2026-03-06", "last_seen": "2026-04-01", "history": [{ "date": "2026-03-06", "heat": 2, "breadth": 4, "badge": "new" }, { "date": "2026-03-25", "heat": 3, "breadth": 5, "badge": "rising" }, { "date": "2026-04-01", "heat": 3, "breadth": 5, "badge": "still_hot" }] },
-    { "id": "T-07", "name": "Workforce Stabilization — Wage Pressure Moderating", "category": "Workforce", "product": "eldermark", "heat": 2, "breadth": 5, "first_seen": "2026-03-06", "last_seen": "2026-04-01", "history": [{ "date": "2026-03-06", "heat": 3, "breadth": 5, "badge": "new" }, { "date": "2026-03-25", "heat": 2, "breadth": 5, "badge": "cooling" }, { "date": "2026-04-01", "heat": 2, "breadth": 5, "badge": "stable" }] },
-    { "id": "T-08", "name": "Value-Based Care Models Accelerating", "category": "Finance", "product": "eldermark", "heat": 3, "breadth": 4, "first_seen": "2026-03-06", "last_seen": "2026-04-01", "history": [{ "date": "2026-03-06", "heat": 1, "breadth": 3, "badge": "new" }, { "date": "2026-03-25", "heat": 2, "breadth": 4, "badge": "rising" }, { "date": "2026-04-01", "heat": 3, "breadth": 4, "badge": "rising" }] },
-    { "id": "T-09", "name": "Remote Patient Monitoring Goes Mainstream", "category": "Technology", "product": "eldermark", "heat": 2, "breadth": 3, "first_seen": "2026-03-25", "last_seen": "2026-04-01", "history": [{ "date": "2026-03-25", "heat": 2, "breadth": 3, "badge": "new" }, { "date": "2026-04-01", "heat": 2, "breadth": 3, "badge": "stable" }] },
-    { "id": "T-10", "name": "Antipsychotic Deprescribing Under Regulatory Spotlight", "category": "Clinical", "product": "eldermark", "heat": 2, "breadth": 4, "first_seen": "2026-03-25", "last_seen": "2026-04-01", "history": [{ "date": "2026-03-25", "heat": 2, "breadth": 4, "badge": "new" }, { "date": "2026-04-01", "heat": 2, "breadth": 4, "badge": "stable" }] },
-    { "id": "T-11", "name": "Memory Care Demand Steady as Specialized Supply Lags", "category": "Market", "product": "eldermark", "heat": 2, "breadth": 3, "first_seen": "2026-03-06", "last_seen": "2026-04-01", "history": [{ "date": "2026-03-06", "heat": 2, "breadth": 4, "badge": "new" }, { "date": "2026-03-25", "heat": 2, "breadth": 3, "badge": "stable" }, { "date": "2026-04-01", "heat": 2, "breadth": 3, "badge": "stable" }] },
-    { "id": "T-12", "name": "EHR & Platform Consolidation Continues", "category": "Technology", "product": "eldermark", "heat": 3, "breadth": 4, "first_seen": "2026-03-06", "last_seen": "2026-04-01", "history": [{ "date": "2026-03-06", "heat": 2, "breadth": 4, "badge": "new" }, { "date": "2026-03-25", "heat": 2, "breadth": 4, "badge": "stable" }, { "date": "2026-04-01", "heat": 3, "breadth": 4, "badge": "rising" }] },
-    { "id": "T-13", "name": "Medicaid Funding Threat — $880B Cut Proposal", "category": "Regulatory", "product": "eldermark", "heat": 3, "breadth": 5, "first_seen": "2026-04-01", "last_seen": "2026-04-01", "history": [{ "date": "2026-04-01", "heat": 3, "breadth": 5, "badge": "new" }] },
-    { "id": "D-01", "name": "Personalized Dining & Food as Medicine", "category": "Operations", "product": "emenu", "dining": true, "heat": 2, "breadth": 4, "first_seen": "2026-03-25", "last_seen": "2026-04-01", "history": [{ "date": "2026-03-25", "heat": 2, "breadth": 4, "badge": "new" }, { "date": "2026-04-01", "heat": 2, "breadth": 4, "badge": "stable" }] },
-    { "id": "D-02", "name": "Food Waste Reduction as Margin Strategy", "category": "Operations", "product": "emenu", "dining": true, "heat": 2, "breadth": 3, "first_seen": "2026-03-25", "last_seen": "2026-04-01", "history": [{ "date": "2026-03-25", "heat": 2, "breadth": 3, "badge": "new" }, { "date": "2026-04-01", "heat": 2, "breadth": 3, "badge": "stable" }] },
-    { "id": "D-03", "name": "Kitchen Workforce Retention Intensifying", "category": "Workforce", "product": "emenu", "dining": true, "heat": 2, "breadth": 4, "first_seen": "2026-03-06", "last_seen": "2026-04-01", "history": [{ "date": "2026-03-06", "heat": 3, "breadth": 5, "badge": "new" }, { "date": "2026-03-25", "heat": 2, "breadth": 4, "badge": "cooling" }, { "date": "2026-04-01", "heat": 2, "breadth": 4, "badge": "stable" }] },
-    { "id": "D-04", "name": "AI Menu Optimization Emerging", "category": "Technology", "product": "emenu", "dining": true, "heat": 2, "breadth": 3, "first_seen": "2026-03-25", "last_seen": "2026-04-01", "history": [{ "date": "2026-03-25", "heat": 1, "breadth": 2, "badge": "new" }, { "date": "2026-04-01", "heat": 2, "breadth": 3, "badge": "rising" }] }
+    {
+      "id": "boomer-demand-inflection",
+      "name": "Boomer 80th Birthday: Demand Inflection Point",
+      "category": "Market",
+      "product": "both",
+      "heat": 3,
+      "breadth": 5,
+      "dining_relevant": false,
+      "last_seen": "2026-05-11",
+      "badge": "still_hot",
+      "history": [
+        { "date": "2026-03-25", "heat": 3, "breadth": 5, "badge": "new" },
+        { "date": "2026-05-11", "heat": 3, "breadth": 5, "badge": "still_hot" }
+      ]
+    },
+    {
+      "id": "occupancy-supply-crunch",
+      "name": "Occupancy Near Record Highs, Supply Stays Constrained",
+      "category": "Market",
+      "product": "both",
+      "heat": 3,
+      "breadth": 5,
+      "dining_relevant": false,
+      "last_seen": "2026-05-11",
+      "badge": "still_hot",
+      "history": [
+        { "date": "2026-03-25", "heat": 3, "breadth": 5, "badge": "new" },
+        { "date": "2026-05-11", "heat": 3, "breadth": 5, "badge": "still_hot" }
+      ]
+    },
+    {
+      "id": "medicaid-cuts-threat",
+      "name": "Medicaid Cuts Imperil Operator Finances",
+      "category": "Finance",
+      "product": "both",
+      "heat": 3,
+      "breadth": 5,
+      "dining_relevant": false,
+      "last_seen": "2026-05-11",
+      "badge": "rising",
+      "history": [
+        { "date": "2026-03-25", "heat": 2, "breadth": 4, "badge": "new" },
+        { "date": "2026-05-11", "heat": 3, "breadth": 5, "badge": "rising" }
+      ]
+    },
+    {
+      "id": "ai-clinical-decision-support",
+      "name": "AI Clinical Decision Support Goes Mainstream",
+      "category": "Technology",
+      "product": "eldermark",
+      "heat": 3,
+      "breadth": 4,
+      "dining_relevant": false,
+      "last_seen": "2026-05-11",
+      "badge": "rising",
+      "history": [
+        { "date": "2026-03-25", "heat": 2, "breadth": 3, "badge": "new" },
+        { "date": "2026-05-11", "heat": 3, "breadth": 4, "badge": "rising" }
+      ]
+    },
+    {
+      "id": "workforce-staffing-crisis",
+      "name": "Workforce Staffing Crisis Persists Post-Mandate",
+      "category": "Workforce",
+      "product": "eldermark",
+      "heat": 3,
+      "breadth": 5,
+      "dining_relevant": true,
+      "last_seen": "2026-05-11",
+      "badge": "still_hot",
+      "history": [
+        { "date": "2026-03-25", "heat": 3, "breadth": 5, "badge": "new" },
+        { "date": "2026-05-11", "heat": 3, "breadth": 5, "badge": "still_hot" }
+      ]
+    },
+    {
+      "id": "ai-marketing-lead-intelligence",
+      "name": "AI-Powered Marketing & Lead Intelligence",
+      "category": "Technology",
+      "product": "eldermark",
+      "heat": 2,
+      "breadth": 3,
+      "dining_relevant": false,
+      "last_seen": "2026-05-11",
+      "badge": "rising",
+      "history": [
+        { "date": "2026-03-25", "heat": 1, "breadth": 2, "badge": "new" },
+        { "date": "2026-05-11", "heat": 2, "breadth": 3, "badge": "rising" }
+      ]
+    },
+    {
+      "id": "reit-capital-surge",
+      "name": "REIT & Institutional Capital Surge",
+      "category": "Finance",
+      "product": "eldermark",
+      "heat": 2,
+      "breadth": 4,
+      "dining_relevant": false,
+      "last_seen": "2026-05-11",
+      "badge": "rising",
+      "history": [
+        { "date": "2026-03-25", "heat": 1, "breadth": 3, "badge": "new" },
+        { "date": "2026-05-11", "heat": 2, "breadth": 4, "badge": "rising" }
+      ]
+    },
+    {
+      "id": "construction-cost-tariff",
+      "name": "Construction Cost Inflation & Tariff Uncertainty",
+      "category": "Operations",
+      "product": "both",
+      "heat": 2,
+      "breadth": 3,
+      "dining_relevant": false,
+      "last_seen": "2026-05-11",
+      "badge": "new",
+      "history": [
+        { "date": "2026-05-11", "heat": 2, "breadth": 3, "badge": "new" }
+      ]
+    },
+    {
+      "id": "value-based-care-shift",
+      "name": "Value-Based Care Shift Accelerates",
+      "category": "Clinical",
+      "product": "eldermark",
+      "heat": 2,
+      "breadth": 3,
+      "dining_relevant": false,
+      "last_seen": "2026-05-11",
+      "badge": "new",
+      "history": [
+        { "date": "2026-05-11", "heat": 2, "breadth": 3, "badge": "new" }
+      ]
+    },
+    {
+      "id": "dining-tech-differentiator",
+      "name": "Dining Tech as Competitive Differentiator",
+      "category": "Operations",
+      "product": "emenu",
+      "heat": 2,
+      "breadth": 3,
+      "dining_relevant": true,
+      "last_seen": "2026-05-11",
+      "badge": "rising",
+      "history": [
+        { "date": "2026-03-25", "heat": 1, "breadth": 2, "badge": "new" },
+        { "date": "2026-05-11", "heat": 2, "breadth": 3, "badge": "rising" }
+      ]
+    },
+    {
+      "id": "ai-workforce-optimization",
+      "name": "AI Workforce Optimization & Scheduling",
+      "category": "Workforce",
+      "product": "eldermark",
+      "heat": 2,
+      "breadth": 3,
+      "dining_relevant": true,
+      "last_seen": "2026-05-11",
+      "badge": "new",
+      "history": [
+        { "date": "2026-05-11", "heat": 2, "breadth": 3, "badge": "new" }
+      ]
+    },
+    {
+      "id": "boomer-consumer-expectations",
+      "name": "Boomer Consumer Expectations Reshape Senior Living Product",
+      "category": "Market",
+      "product": "both",
+      "heat": 2,
+      "breadth": 3,
+      "dining_relevant": true,
+      "last_seen": "2026-05-11",
+      "badge": "rising",
+      "history": [
+        { "date": "2026-03-25", "heat": 1, "breadth": 2, "badge": "new" },
+        { "date": "2026-05-11", "heat": 2, "breadth": 3, "badge": "rising" }
+      ]
+    }
   ],
-  "badge_logic": {
-    "description": "Rules for assigning continuity badges on future runs. Compare current heat/breadth to previous run values.",
-    "new": "trend ID not present in previous run",
-    "rising": "heat increased by 1+ OR breadth increased by 2+ since last run",
-    "still_hot": "heat == 3 and unchanged for 2+ consecutive runs",
-    "cooling": "heat decreased by 1+ since last run",
-    "stable": "heat and breadth unchanged, heat < 3"
+  "competitors": {
+    "eldermark": [
+      {
+        "name": "PointClickCare",
+        "story_type": "Marketing",
+        "significance": "High",
+        "summary": "PointClickCare named Best EHR Solution by 2026 MedTech Breakthrough Awards (May 7), selected from 4,000+ nominations worldwide.",
+        "why_it_matters": "Validates EHR as a key competitive battleground; Eldermark must counter with clinical outcomes stories and differentiated AI capabilities.",
+        "source": "https://pointclickcare.com/press-releases/pointclickcare-awarded-best-ehr-solution-in-the-2026-medtech-breakthrough-awards/"
+      },
+      {
+        "name": "PointClickCare",
+        "story_type": "Product Launch",
+        "significance": "High",
+        "summary": "PointClickCare launched 'Study Buddy,' an AI-powered research platform delivering grant-ready evidence from LTC data (April 2026), plus AIDA Healthcare referral management partnership.",
+        "why_it_matters": "Signals PCC's aggressive AI product buildout — Eldermark's ElderSmarts AI roadmap needs visible differentiation in the AL/MC segment.",
+        "source": "https://pointclickcare.com/press-releases/product-news/"
+      },
+      {
+        "name": "Inspiren",
+        "story_type": "Funding",
+        "significance": "High",
+        "summary": "Inspiren raised $100M Series B (led by Insight Partners) for its AI-powered safety, care planning, and emergency response platform for senior living.",
+        "why_it_matters": "A well-capitalized AI safety layer could bundle with EHR competitors, threatening Eldermark's resident engagement and analytics positioning.",
+        "source": "https://www.prnewswire.com/news-releases/inspiren-raises-100m-series-b-to-lead-senior-livings-ai-driven-future-302566946.html"
+      },
+      {
+        "name": "Aline (formerly Enquire/Sherpa)",
+        "story_type": "Marketing",
+        "significance": "Medium",
+        "summary": "Aline hosted its Innovation Summit 2026 in Frisco, TX (May 11–13) focused on AI-integrated senior living operations and CRM best practices.",
+        "why_it_matters": "Aline is aggressively investing in brand and community, competing directly with Eldermark CRM in the AL/MC space.",
+        "source": "https://alineops.com/resources/"
+      },
+      {
+        "name": "WelcomeHome + ECP",
+        "story_type": "Partnership",
+        "significance": "Medium",
+        "summary": "WelcomeHome CRM and ECP EHR announced integration allowing resident profiles to flow directly from sales to care, streamlining move-ins.",
+        "why_it_matters": "CRM-to-EHR integration is a core Eldermark differentiator — competitors are closing this gap; Eldermark must accelerate its integrated suite messaging.",
+        "source": "https://www.ecp123.com/blog/welcomehome-and-ecp-partner-to-simplify-move-ins-and-connect-sales-to-care-for-senior-living-communities"
+      }
+    ],
+    "emenu": [
+      {
+        "name": "MealSuite + CCL Hospitality (dineOS)",
+        "story_type": "Partnership",
+        "significance": "High",
+        "summary": "MealSuite and CCL Hospitality Group's dineOS platform — combining resident-facing dining tools with administrative logistics — is gaining market traction in 2026.",
+        "why_it_matters": "dineOS positions as a full-stack dining operating system, directly competing with eMenuChoice's core value prop; monitor for operator adoption rates.",
+        "source": "https://www.mealsuite.com/blog/5-transformative-trends-in-senior-care-dining"
+      }
+    ]
   }
 }
+
