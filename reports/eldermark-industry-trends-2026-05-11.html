@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eldermark Industry Trends — May 11, 2026</title>
+<style>
+  :root {
+    --eldermark-blue: #003087;
+    --eldermark-teal: #00A99D;
+    --emenu-purple: #7B2D8B;
+    --hot-red: #C0392B;
+    --rising-green: #27AE60;
+    --cooling-blue: #2980B9;
+    --new-orange: #E67E22;
+    --bg: #F4F6F9;
+    --card-bg: #FFFFFF;
+    --text: #1A1A2E;
+    --muted: #6B7280;
+    --border: #E5E7EB;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; }
+
+  /* HEADER */
+  .report-header {
+    background: linear-gradient(135deg, var(--eldermark-blue) 0%, #001a5c 100%);
+    color: white;
+    padding: 32px 40px 24px;
+  }
+  .report-header .brand-row { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .report-header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; }
+  .report-header .edition-tag { background: rgba(255,255,255,0.15); border-radius: 4px; padding: 3px 10px; font-size: 12px; font-weight: 600; }
+  .report-header .meta-row { font-size: 12px; opacity: 0.75; margin-bottom: 20px; }
+  .stat-strip { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 16px; }
+  .stat-item { text-align: center; }
+  .stat-num { font-size: 28px; font-weight: 800; line-height: 1; }
+  .stat-label { font-size: 11px; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+
+  /* FILTER BAR */
+  .filter-bar {
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 12px 40px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .filter-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-right: 4px; }
+  .filter-btn {
+    border: 1.5px solid var(--border);
+    background: white;
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    color: var(--text);
+  }
+  .filter-btn:hover { border-color: var(--eldermark-teal); color: var(--eldermark-teal); }
+  .filter-btn.active { background: var(--eldermark-blue); border-color: var(--eldermark-blue); color: white; }
+  .filter-btn.active.emenu { background: var(--emenu-purple); border-color: var(--emenu-purple); }
+  .filter-divider { width: 1px; height: 24px; background: var(--border); margin: 0 4px; }
+  .filter-btn.toggle-hot.active { background: var(--hot-red); border-color: var(--hot-red); }
+  .filter-btn.toggle-dining.active { background: var(--emenu-purple); border-color: var(--emenu-purple); }
+
+  /* CONTENT */
+  .content { max-width: 1280px; margin: 0 auto; padding: 28px 40px; }
+  section { margin-bottom: 36px; }
+  .section-title {
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* HOT RIGHT NOW PANEL */
+  .hot-panel { background: linear-gradient(135deg, #fff5f5 0%, #fef2f2 100%); border: 1.5px solid #fca5a5; border-radius: 12px; padding: 20px 24px; }
+  .hot-panel-title { font-size: 15px; font-weight: 800; color: var(--hot-red); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .hot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+  .hot-item { background: white; border-radius: 8px; padding: 14px 16px; border-left: 4px solid var(--hot-red); }
+  .hot-item-name { font-weight: 700; font-size: 13px; margin-bottom: 4px; }
+  .hot-item-meta { font-size: 11px; color: var(--muted); }
+
+  /* DINING PANEL */
+  .dining-panel { background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); border: 1.5px solid #c084fc; border-radius: 12px; padding: 20px 24px; }
+  .dining-panel-title { font-size: 15px; font-weight: 800; color: var(--emenu-purple); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+
+  /* COMPETITIVE CORNER */
+  .competitive-panel { background: #0f172a; border-radius: 12px; padding: 20px 24px; }
+  .competitive-panel-title { font-size: 15px; font-weight: 800; color: #f1f5f9; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .comp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+  .comp-item { background: #1e293b; border-radius: 8px; padding: 14px 16px; border-left: 3px solid; }
+  .comp-item.high { border-color: #f87171; }
+  .comp-item.medium { border-color: #fbbf24; }
+  .comp-item-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+  .comp-name { font-weight: 700; font-size: 13px; color: #f1f5f9; }
+  .comp-brand-tag { font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: 700; }
+  .comp-brand-tag.eldermark { background: rgba(0,48,135,0.5); color: #93c5fd; }
+  .comp-brand-tag.emenu { background: rgba(123,45,139,0.5); color: #e879f9; }
+  .comp-story-type { font-size: 11px; color: #94a3b8; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+  .sig-badge { font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; }
+  .sig-badge.high { background: #fca5a5; color: #7f1d1d; }
+  .sig-badge.medium { background: #fde68a; color: #78350f; }
+  .comp-summary { font-size: 12px; color: #cbd5e1; line-height: 1.5; margin-bottom: 6px; }
+  .comp-why { font-size: 11px; color: #64748b; line-height: 1.4; font-style: italic; }
+  .comp-source { font-size: 10px; margin-top: 6px; }
+  .comp-source a { color: #38bdf8; }
+
+  /* SUMMARY TABLE */
+  .summary-table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .summary-table th { background: var(--eldermark-blue); color: white; padding: 10px 14px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; }
+  .summary-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); font-size: 12px; vertical-align: middle; }
+  .summary-table tr:last-child td { border-bottom: none; }
+  .summary-table tr:hover td { background: #f8fafc; }
+
+  /* TREND CARDS */
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(480px, 1fr)); gap: 20px; }
+  .trend-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    overflow: hidden;
+    border: 1.5px solid var(--border);
+    transition: box-shadow 0.15s;
+  }
+  .trend-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+  .card-header { padding: 16px 20px 12px; border-bottom: 1px solid var(--border); }
+  .card-header-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+  .card-title { font-size: 15px; font-weight: 800; line-height: 1.3; flex: 1; padding-right: 12px; }
+  .card-badges { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; }
+  .product-badge { font-size: 10px; font-weight: 800; padding: 3px 8px; border-radius: 10px; white-space: nowrap; }
+  .product-badge.eldermark { background: #dbeafe; color: var(--eldermark-blue); }
+  .product-badge.emenu { background: #f3e8ff; color: var(--emenu-purple); }
+  .product-badge.both { background: #e0f2fe; color: #0369a1; }
+  .continuity-badge { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+  .continuity-badge.new { background: #fff7ed; color: #c2410c; }
+  .continuity-badge.rising { background: #f0fdf4; color: #15803d; }
+  .continuity-badge.still_hot { background: #fef2f2; color: #b91c1c; }
+  .continuity-badge.cooling { background: #eff6ff; color: #1d4ed8; }
+  .card-meta-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .heat-dots { display: flex; gap: 3px; }
+  .heat-dot { width: 10px; height: 10px; border-radius: 50%; background: #e5e7eb; }
+  .heat-dot.active { background: var(--hot-red); }
+  .breadth-dots { display: flex; gap: 3px; }
+  .breadth-dot { width: 8px; height: 8px; border-radius: 50%; background: #e5e7eb; }
+  .breadth-dot.active { background: var(--eldermark-teal); }
+  .category-chip { font-size: 11px; color: var(--muted); background: #f1f5f9; padding: 2px 8px; border-radius: 10px; }
+  .dining-chip { font-size: 11px; color: var(--emenu-purple); background: #f3e8ff; padding: 2px 8px; border-radius: 10px; }
+  .audience-tags { display: flex; gap: 4px; flex-wrap: wrap; }
+  .audience-tag { font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; background: #f1f5f9; color: var(--muted); border: 1px solid var(--border); }
+  .capability-chips { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; }
+  .capability-chip { font-size: 10px; background: #eff6ff; color: var(--eldermark-blue); padding: 2px 8px; border-radius: 10px; border: 1px solid #bfdbfe; }
+
+  /* CARD BODY */
+  .card-body { padding: 16px 20px; }
+  .stats-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 14px; }
+  .stat-box { background: #f8fafc; border-radius: 8px; padding: 10px 12px; }
+  .stat-box-num { font-size: 20px; font-weight: 800; color: var(--eldermark-blue); line-height: 1; }
+  .stat-box-label { font-size: 11px; color: var(--muted); margin-top: 2px; line-height: 1.3; }
+  .card-section { margin-bottom: 12px; }
+  .card-section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 6px; }
+  .card-context { font-size: 13px; line-height: 1.6; color: #374151; }
+  .card-context p + p { margin-top: 8px; }
+  .driver-list, .implication-list, .angle-list { list-style: none; }
+  .driver-list li, .implication-list li, .angle-list li { font-size: 12px; line-height: 1.5; color: #374151; padding: 3px 0 3px 14px; position: relative; }
+  .driver-list li::before { content: '→'; position: absolute; left: 0; color: var(--muted); }
+  .implication-list li::before { content: '•'; position: absolute; left: 0; color: var(--eldermark-teal); font-weight: 700; }
+  .angle-list li::before { content: '✦'; position: absolute; left: 0; color: var(--emenu-purple); font-size: 9px; top: 5px; }
+  .sources-inline { font-size: 11px; color: var(--muted); margin-top: 10px; border-top: 1px solid var(--border); padding-top: 8px; }
+  .sources-inline a { color: var(--eldermark-teal); }
+
+  /* SOURCES SECTION */
+  .sources-section { background: white; border-radius: 12px; padding: 20px 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .source-item { display: flex; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--border); }
+  .source-item:last-child { border-bottom: none; }
+  .source-num { font-size: 12px; font-weight: 700; color: var(--muted); min-width: 24px; }
+  .source-link { font-size: 12px; color: var(--eldermark-teal); text-decoration: none; }
+  .source-link:hover { text-decoration: underline; }
+
+  /* HIDDEN CARD */
+  .trend-card.hidden { display: none; }
+
+  /* FOOTER */
+  .report-footer { text-align: center; padding: 24px 40px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); margin-top: 20px; }
+
+  /* CATEGORY HEADER */
+  .category-section-header { font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 12px; margin-top: 8px; padding: 8px 14px; background: #f8fafc; border-radius: 8px; border-left: 4px solid var(--eldermark-blue); }
+
+  sup { font-size: 9px; color: var(--eldermark-teal); cursor: pointer; }
+  sup a { color: var(--eldermark-teal); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="report-header">
+  <div class="brand-row">
+    <h1>🏥 LivTech Industry Intelligence</h1>
+    <span class="edition-tag">Edition 2 · May 11, 2026</span>
+  </div>
+  <div class="meta-row">
+    Eldermark &amp; eMenuChoice · Senior Living Residential Division · Report period: Apr 28 – May 11, 2026 · Next update: May 25, 2026
+  </div>
+  <div class="stat-strip">
+    <div class="stat-item">
+      <div class="stat-num">12</div>
+      <div class="stat-label">Trends Tracked</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Dining Trends</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">5</div>
+      <div class="stat-label">Breaking Signals 🔥</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">6</div>
+      <div class="stat-label">Competitive Items</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">22</div>
+      <div class="stat-label">Sources</div>
+    </div>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <span class="filter-label">Audience</span>
+  <button class="filter-btn active" data-filter="all" onclick="setAudience('all',this)">All</button>
+  <button class="filter-btn" data-filter="ops" onclick="setAudience('ops',this)">Ops</button>
+  <button class="filter-btn" data-filter="don" onclick="setAudience('don',this)">DON / Clinical</button>
+  <button class="filter-btn" data-filter="fin" onclick="setAudience('fin',this)">Finance</button>
+  <button class="filter-btn" data-filter="mkt" onclick="setAudience('mkt',this)">Marketing</button>
+  <button class="filter-btn" data-filter="reit" onclick="setAudience('reit',this)">REIT / Investors</button>
+  <div class="filter-divider"></div>
+  <span class="filter-label">Product</span>
+  <button class="filter-btn active" data-product="all" onclick="setProduct('all',this)">All</button>
+  <button class="filter-btn" data-product="eldermark" onclick="setProduct('eldermark',this)">Eldermark</button>
+  <button class="filter-btn emenu" data-product="emenu" onclick="setProduct('emenu',this)">eMenuChoice</button>
+  <div class="filter-divider"></div>
+  <button class="filter-btn toggle-hot" id="toggleHot" onclick="toggleFilter('hot',this)">🔥 Breaking Only</button>
+  <button class="filter-btn toggle-dining" id="toggleDining" onclick="toggleFilter('dining',this)">🍽 Dining</button>
+</div>
+
+<div class="content">
+
+  <!-- HOT RIGHT NOW -->
+  <section id="hot-panel-section">
+    <div class="section-title">🔥 Hot Right Now</div>
+    <div class="hot-panel">
+      <div class="hot-panel-title">🔥 Breaking Signals — Heat Level 3</div>
+      <div class="hot-grid">
+        <div class="hot-item">
+          <div class="hot-item-name">Boomer 80th Birthday: Demand Inflection Point</div>
+          <div class="hot-item-meta">Market · Both Brands · 🔥 Still Hot</div>
+        </div>
+        <div class="hot-item">
+          <div class="hot-item-name">Occupancy Near Record Highs, Supply Stays Constrained</div>
+          <div class="hot-item-meta">Market · Both Brands · 🔥 Still Hot</div>
+        </div>
+        <div class="hot-item">
+          <div class="hot-item-name">Medicaid Cuts Imperil Operator Finances</div>
+          <div class="hot-item-meta">Finance/Regulatory · Both Brands · 📈 Rising</div>
+        </div>
+        <div class="hot-item">
+          <div class="hot-item-name">AI Clinical Decision Support Goes Mainstream</div>
+          <div class="hot-item-meta">Technology · Eldermark · 📈 Rising</div>
+        </div>
+        <div class="hot-item">
+          <div class="hot-item-name">Workforce Staffing Crisis Persists Post-Mandate</div>
+          <div class="hot-item-meta">Workforce · Eldermark · 🔥 Still Hot</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DINING PANEL -->
+  <section id="dining-panel-section">
+    <div class="section-title">🍽 eMenuChoice Dining Intelligence</div>
+    <div class="dining-panel">
+      <div class="dining-panel-title">🍽 Dining Trends — eMenuChoice Relevance Layer</div>
+      <div class="hot-grid">
+        <div class="hot-item" style="border-color: var(--emenu-purple);">
+          <div class="hot-item-name">Dining Tech as Competitive Differentiator</div>
+          <div class="hot-item-meta">Operations · eMenuChoice · 📈 Rising · Heat 2</div>
+        </div>
+        <div class="hot-item" style="border-color: var(--emenu-purple);">
+          <div class="hot-item-name">Workforce Staffing Crisis Persists</div>
+          <div class="hot-item-meta">Workforce · Eldermark · 🔥 Still Hot · Kitchen staffing pressure</div>
+        </div>
+        <div class="hot-item" style="border-color: var(--emenu-purple);">
+          <div class="hot-item-name">AI Workforce Optimization &amp; Scheduling</div>
+          <div class="hot-item-meta">Technology · Eldermark · 🆕 New · Dining labor optimization</div>
+        </div>
+        <div class="hot-item" style="border-color: var(--emenu-purple);">
+          <div class="hot-item-name">Boomer Consumer Expectations Reshape Product</div>
+          <div class="hot-item-meta">Market · Both · 📈 Rising · Dining experience demands</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETITIVE CORNER -->
+  <section id="comp-section">
+    <div class="section-title">🕵 Competitive Corner</div>
+    <div class="competitive-panel">
+      <div class="competitive-panel-title">🕵 Intel Report — April 28 – May 11, 2026</div>
+      <div class="comp-grid">
+
+        <div class="comp-item high">
+          <div class="comp-item-header">
+            <div class="comp-name">PointClickCare</div>
+            <span class="comp-brand-tag eldermark">Eldermark</span>
+          </div>
+          <div class="comp-story-type">🏆 Marketing <span class="sig-badge high">HIGH</span></div>
+          <div class="comp-summary">Named Best EHR Solution by 2026 MedTech Breakthrough Awards (May 7), selected from 4,000+ nominations worldwide — major brand validation moment.</div>
+          <div class="comp-why">💡 Eldermark must counter with clinical outcomes data and AL/MC-specific differentiation. PCC's SNF-heavy roots are a vulnerability in the AL segment.</div>
+          <div class="comp-source"><a href="https://pointclickcare.com/press-releases/pointclickcare-awarded-best-ehr-solution-in-the-2026-medtech-breakthrough-awards/" target="_blank">↗ Source</a></div>
+        </div>
+
+        <div class="comp-item high">
+          <div class="comp-item-header">
+            <div class="comp-name">PointClickCare</div>
+            <span class="comp-brand-tag eldermark">Eldermark</span>
+          </div>
+          <div class="comp-story-type">🚀 Product Launch <span class="sig-badge high">HIGH</span></div>
+          <div class="comp-summary">Launched "Study Buddy" AI research platform (April 2026) for grant-ready LTC evidence generation; also partnered with AIDA Healthcare for AI referral management.</div>
+          <div class="comp-why">💡 Signals aggressive AI buildout — Eldermark's ElderSmarts AI roadmap needs visible AL/MC differentiation to counter PCC's research credibility claims.</div>
+          <div class="comp-source"><a href="https://pointclickcare.com/press-releases/product-news/" target="_blank">↗ Source</a></div>
+        </div>
+
+        <div class="comp-item high">
+          <div class="comp-item-header">
+            <div class="comp-name">Inspiren</div>
+            <span class="comp-brand-tag eldermark">Eldermark</span>
+          </div>
+          <div class="comp-story-type">💰 Funding <span class="sig-badge high">HIGH</span></div>
+          <div class="comp-summary">Raised $100M Series B led by Insight Partners for AI-powered safety, care planning, and emergency response — bringing total raised to $155M.</div>
+          <div class="comp-why">💡 A well-funded AI safety layer could bundle with EHR competitors, threatening Eldermark's resident engagement and analytics positioning. Watch for EHR integration deals.</div>
+          <div class="comp-source"><a href="https://www.prnewswire.com/news-releases/inspiren-raises-100m-series-b-to-lead-senior-livings-ai-driven-future-302566946.html" target="_blank">↗ Source</a></div>
+        </div>
+
+        <div class="comp-item medium">
+          <div class="comp-item-header">
+            <div class="comp-name">Aline (Enquire/Sherpa)</div>
+            <span class="comp-brand-tag eldermark">Eldermark</span>
+          </div>
+          <div class="comp-story-type">📣 Marketing <span class="sig-badge medium">MEDIUM</span></div>
+          <div class="comp-summary">Hosted Innovation Summit 2026 (May 11–13, Frisco TX) focused on AI-integrated senior living operations and CRM best practices — major community-building event.</div>
+          <div class="comp-why">💡 Aline is investing heavily in brand community, directly competing with Eldermark CRM. Monitor post-summit product announcements and customer wins.</div>
+          <div class="comp-source"><a href="https://alineops.com/resources/" target="_blank">↗ Source</a></div>
+        </div>
+
+        <div class="comp-item medium">
+          <div class="comp-item-header">
+            <div class="comp-name">WelcomeHome + ECP</div>
+            <span class="comp-brand-tag eldermark">Eldermark</span>
+          </div>
+          <div class="comp-story-type">🤝 Partnership <span class="sig-badge medium">MEDIUM</span></div>
+          <div class="comp-summary">WelcomeHome CRM and ECP EHR integrated to allow resident profiles to flow directly from sales to care, streamlining move-ins for 8,000+ communities.</div>
+          <div class="comp-why">💡 CRM-to-EHR integration is a core Eldermark differentiator — competitors are closing this gap. Accelerate integrated suite messaging and proof points.</div>
+          <div class="comp-source"><a href="https://www.ecp123.com/blog/welcomehome-and-ecp-partner-to-simplify-move-ins-and-connect-sales-to-care-for-senior-living-communities" target="_blank">↗ Source</a></div>
+        </div>
+
+        <div class="comp-item high">
+          <div class="comp-item-header">
+            <div class="comp-name">MealSuite + CCL (dineOS)</div>
+            <span class="comp-brand-tag emenu">eMenuChoice</span>
+          </div>
+          <div class="comp-story-type">🤝 Partnership <span class="sig-badge high">HIGH</span></div>
+          <div class="comp-summary">MealSuite and CCL Hospitality Group's dineOS platform — combining resident-facing dining tools with admin logistics — continues gaining operator traction in 2026.</div>
+          <div class="comp-why">💡 dineOS positions as a full-stack dining OS, directly competing with eMenuChoice's core value prop. Monitor for operator adoption rates and marketing claims.</div>
+          <div class="comp-source"><a href="https://www.mealsuite.com/blog/5-transformative-trends-in-senior-care-dining" target="_blank">↗ Source</a></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SUMMARY TABLE -->
+  <section id="summary-section">
+    <div class="section-title">📊 Trend Summary Table</div>
+    <div style="overflow-x:auto;">
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th>Trend Name</th>
+          <th>Category</th>
+          <th>Product</th>
+          <th>Heat</th>
+          <th>Breadth</th>
+          <th>Badge</th>
+          <th>Dining</th>
+          <th>Audience</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-product="both" data-heat="3" data-dining="false" data-audience="ops fin reit mkt">
+          <td><strong>Boomer 80th Birthday: Demand Inflection Point</strong></td>
+          <td>Market</td>
+          <td><span class="product-badge both">Both</span></td>
+          <td>🔥🔥🔥</td>
+          <td>●●●●●</td>
+          <td><span class="continuity-badge still_hot">🔥 Still Hot</span></td>
+          <td>—</td>
+          <td>All</td>
+        </tr>
+        <tr data-product="both" data-heat="3" data-dining="false" data-audience="ops fin reit">
+          <td><strong>Occupancy Near Record Highs, Supply Constrained</strong></td>
+          <td>Market</td>
+          <td><span class="product-badge both">Both</span></td>
+          <td>🔥🔥🔥</td>
+          <td>●●●●●</td>
+          <td><span class="continuity-badge still_hot">🔥 Still Hot</span></td>
+          <td>—</td>
+          <td>Ops, Fin, REIT</td>
+        </tr>
+        <tr data-product="both" data-heat="3" data-dining="false" data-audience="fin ops reit">
+          <td><strong>Medicaid Cuts Imperil Operator Finances</strong></td>
+          <td>Finance/Regulatory</td>
+          <td><span class="product-badge both">Both</span></td>
+          <td>🔥🔥🔥</td>
+          <td>●●●●●</td>
+          <td><span class="continuity-badge rising">📈 Rising</span></td>
+          <td>—</td>
+          <td>Fin, Ops, REIT</td>
+        </tr>
+        <tr data-product="eldermark" data-heat="3" data-dining="false" data-audience="don ops mkt">
+          <td><strong>AI Clinical Decision Support Goes Mainstream</strong></td>
+          <td>Technology/Clinical</td>
+          <td><span class="product-badge eldermark">Eldermark</span></td>
+          <td>🔥🔥🔥</td>
+          <td>●●●●</td>
+          <td><span class="continuity-badge rising">📈 Rising</span></td>
+          <td>—</td>
+          <td>DON, Ops, Mkt</td>
+        </tr>
+        <tr data-product="eldermark" data-heat="3" data-dining="true" data-audience="ops don fin">
+          <td><strong>Workforce Staffing Crisis Persists Post-Mandate</strong></td>
+          <td>Workforce/Regulatory</td>
+          <td><span class="product-badge eldermark">Eldermark</span></td>
+          <td>🔥🔥🔥</td>
+          <td>●●●●●</td>
+          <td><span class="continuity-badge still_hot">🔥 Still Hot</span></td>
+          <td>🍽</td>
+          <td>Ops, DON, Fin</td>
+        </tr>
+        <tr data-product="eldermark" data-heat="2" data-dining="false" data-audience="mkt ops">
+          <td><strong>AI-Powered Marketing &amp; Lead Intelligence</strong></td>
+          <td>Technology/Market</td>
+          <td><span class="product-badge eldermark">Eldermark</span></td>
+          <td>🔥🔥</td>
+          <td>●●●</td>
+          <td><span class="continuity-badge rising">📈 Rising</span></td>
+          <td>—</td>
+          <td>Mkt, Ops</td>
+        </tr>
+        <tr data-product="eldermark" data-heat="2" data-dining="false" data-audience="fin reit">
+          <td><strong>REIT &amp; Institutional Capital Surge</strong></td>
+          <td>Finance</td>
+          <td><span class="product-badge eldermark">Eldermark</span></td>
+          <td>🔥🔥</td>
+          <td>●●●●</td>
+          <td><span class="continuity-badge rising">📈 Rising</span></td>
+          <td>—</td>
+          <td>Fin, REIT</td>
+        </tr>
+        <tr data-product="both" data-heat="2" data-dining="false" data-audience="ops fin reit">
+          <td><strong>Construction Cost Inflation &amp; Tariff Uncertainty</strong></td>
+          <td>Operations/Finance</td>
+          <td><span class="product-badge both">Both</span></td>
+          <td>🔥🔥</td>
+          <td>●●●</td>
+          <td><span class="continuity-badge new">🆕 New</span></td>
+          <td>—</td>
+          <td>Ops, Fin, REIT</td>
+        </tr>
+        <tr data-product="eldermark" data-heat="2" data-dining="false" data-audience="don fin ops">
+          <td><strong>Value-Based Care Shift Accelerates</strong></td>
+          <td>Clinical/Regulatory</td>
+          <td><span class="product-badge eldermark">Eldermark</span></td>
+          <td>🔥🔥</td>
+          <td>●●●</td>
+          <td><span class="continuity-badge new">🆕 New</span></td>
+          <td>—</td>
+          <td>DON, Fin, Ops</td>
+        </tr>
+        <tr data-product="emenu" data-heat="2" data-dining="true" data-audience="ops mkt fin">
+          <td><strong>Dining Tech as Competitive Differentiator</strong></td>
+          <td>Operations</td>
+          <td><span class="product-badge emenu">eMenuChoice</span></td>
+          <td>🔥🔥</td>
+          <td>●●●</td>
+          <td><span class="continuity-badge rising">📈 Rising</span></td>
+          <td>🍽</td>
+          <td>Ops, Mkt, Fin</td>
+        </tr>
+        <tr data-product="eldermark" data-heat="2" data-dining="true" data-audience="ops don fin">
+          <td><strong>AI Workforce Optimization &amp; Scheduling</strong></td>
+          <td>Workforce/Technology</td>
+          <td><span class="product-badge eldermark">Eldermark</span></td>
+          <td>🔥🔥</td>
+          <td>●●●</td>
+          <td><span class="continuity-badge new">🆕 New</span></td>
+          <td>🍽</td>
+          <td>Ops, DON, Fin</td>
+        </tr>
+        <tr data-product="both" data-heat="2" data-dining="true" data-audience="ops mkt fin reit">
+          <td><strong>Boomer Consumer Expectations Reshape Product</strong></td>
+          <td>Market/Operations</td>
+          <td><span class="product-badge both">Both</span></td>
+          <td>🔥🔥</td>
+          <td>●●●</td>
+          <td><span class="continuity-badge rising">📈 Rising</span></td>
+          <td>🍽</td>
+          <td>Ops, Mkt, REIT</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- TREND CARDS -->
+  <section id="cards-section">
+    <div class="section-title">📋 Trend Deep-Dives</div>
+
+    <!-- MARKET -->
+    <div class="category-section-header">Market Trends</div>
+    <div class="cards-grid" style="margin-bottom: 24px;">
+
+      <!-- TREND 1: Boomer Demand Inflection -->
+      <div class="trend-card" data-product="both" data-heat="3" data-dining="false" data-audience="ops fin reit mkt">
+        <div class="card-header">
+          <div class="card-header-top">
+            <div class="card-title">Boomer 80th Birthday: Demand Inflection Point</div>
+            <div class="card-badges">
+              <span class="product-badge both">Both Brands</span>
+              <span class="continuity-badge still_hot">🔥 Still Hot</span>
+            </div>
+          </div>
+          <div class="card-meta-row">
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Heat
+              <div class="heat-dots"><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot active"></div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Breadth
+              <div class="breadth-dots"><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot active"></div></div>
+            </div>
+            <span class="category-chip">Market</span>
+            <div class="audience-tags"><span class="audience-tag">ops</span><span class="audience-tag">fin</span><span class="audience-tag">reit</span><span class="audience-tag">mkt</span></div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="stats-row">
+            <div class="stat-box"><div class="stat-box-num">80</div><div class="stat-box-label">Age oldest boomers turn in 2026 — historic milestone</div></div>
+            <div class="stat-box"><div class="stat-box-num">36.6%</div><div class="stat-box-label">Projected 80+ population growth over next decade (14M → 19M)</div></div>
+            <div class="stat-box"><div class="stat-box-num">$24B</div><div class="stat-box-label">Rolling 4Q transaction volume — highest in a decade <sup><a href="#src1">[1]</a></sup></div></div>
+            <div class="stat-box"><div class="stat-box-num">10K</div><div class="stat-box-label">Americans turning 65 every day, accelerating demand curve</div></div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Context</div>
+            <div class="card-context">
+              <p>The senior living industry reached a structural inflection point in 2026 as the oldest baby boomers turn 80 — the age at which likelihood of senior living entry rises sharply. This cohort is not just larger; it is more demanding, more tech-literate, and more financially varied than any prior generation entering senior care. Operators who prepared infrastructure, technology, and programming for this wave are beginning to separate from those who deferred investment.</p>
+              <p>Despite strong demand signals, the industry is still not broadly ready. Development starts remain suppressed and the supply-demand gap is widening. Operators with high occupancy and modern technology platforms are seeing premium pricing power while under-invested communities struggle with margin pressure. <sup><a href="#src2">[2]</a></sup></p>
+            </div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Root Causes</div>
+            <ul class="driver-list">
+              <li>Post-WWII baby boom created a cohort of 76M Americans, the largest in history</li>
+              <li>Pandemic-era deferred entry now unwinding as health needs accelerate</li>
+              <li>Average age of IL entry rising to 82+, compressing AL/MC pipeline timeline</li>
+              <li>Geographic concentration in Sun Belt and secondary markets creating local imbalances</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Operational Implications</div>
+            <ul class="implication-list">
+              <li>Revenue yield optimization becomes critical — dynamic pricing and CRM lead intelligence are table stakes</li>
+              <li>Operators should accelerate expansion and/or repositioning before supply response arrives (~2028)</li>
+              <li>Technology investments that drive operational efficiency yield faster ROI in a high-occupancy environment</li>
+              <li>CRM data quality matters more than ever — prospect pipelines need 18–24 month visibility</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Content Marketing Angles</div>
+            <ul class="angle-list">
+              <li>Whitepaper: "The Boomer Surge: Is Your Senior Living Community Ready for Peak Demand?"</li>
+              <li>Blog: "80 Is the New 65: What the First Baby Boomers at 80 Mean for AL/MC Operators"</li>
+              <li>Webinar: "From Referral to Residency: CRM Strategies for the Demand Surge Era"</li>
+              <li>Case study: Eldermark community that improved occupancy using ElderSmarts predictive analytics</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TREND 2: Occupancy Supply -->
+      <div class="trend-card" data-product="both" data-heat="3" data-dining="false" data-audience="ops fin reit">
+        <div class="card-header">
+          <div class="card-header-top">
+            <div class="card-title">Occupancy Near Record Highs, Supply Stays Constrained</div>
+            <div class="card-badges">
+              <span class="product-badge both">Both Brands</span>
+              <span class="continuity-badge still_hot">🔥 Still Hot</span>
+            </div>
+          </div>
+          <div class="card-meta-row">
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Heat
+              <div class="heat-dots"><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot active"></div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Breadth
+              <div class="breadth-dots"><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot active"></div></div>
+            </div>
+            <span class="category-chip">Market</span>
+            <div class="audience-tags"><span class="audience-tag">ops</span><span class="audience-tag">fin</span><span class="audience-tag">reit</span></div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="stats-row">
+            <div class="stat-box"><div class="stat-box-num">89.5%</div><div class="stat-box-label">Primary market occupancy Q1 2026 (up from 89.1% Q4 2025) <sup><a href="#src3">[3]</a></sup></div></div>
+            <div class="stat-box"><div class="stat-box-num">91%+</div><div class="stat-box-label">IL occupancy — first time above 91% since 2019</div></div>
+            <div class="stat-box"><div class="stat-box-num">0.4%</div><div class="stat-box-label">Year-over-year inventory growth — record low in Q1 2026</div></div>
+            <div class="stat-box"><div class="stat-box-num">29mo</div><div class="stat-box-label">Average construction-to-occupancy timeline for new senior housing</div></div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Context</div>
+            <div class="card-context">
+              <p>Senior housing occupancy is approaching a 20-year high, fueled by nineteen consecutive quarters of positive net absorption and the structural constraint on new supply. In Q1 2026, primary market occupancy reached 89.5%, with IL crossing 91% for the first time since 2019. NIC MAP projects occupancy exceeding 90% across the sector for the first time since NIC began tracking data. <sup><a href="#src3">[3]</a></sup></p>
+              <p>The supply-side remains suppressed at historically constrained levels. Fewer than 1,500 new units were added to primary markets in Q3 2025, and new construction starts remain subdued due to high financing costs, tariff uncertainty, and labor cost pressures. This creates a multi-year tailwind for operators with existing inventory and technology-enabled yield optimization tools.</p>
+            </div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Root Causes</div>
+            <ul class="driver-list">
+              <li>Construction financing costs remain elevated relative to pre-2022 levels</li>
+              <li>Construction costs inflating 3–4% annually, suppressing economic feasibility</li>
+              <li>29-month average construction timeline means any starts today yield no relief until 2028</li>
+              <li>NIC estimates $275B investment shortfall by 2030 to maintain 90%+ occupancy</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Operational Implications</div>
+            <ul class="implication-list">
+              <li>Operators with occupancy at or near capacity should deploy dynamic pricing strategies</li>
+              <li>Waiting lists create prospect management challenges — CRM tools become critical retention infrastructure</li>
+              <li>Revenue per occupied unit (RevPOR) growth becomes primary growth lever in constrained supply environment</li>
+              <li>Operators who deferred technology investment now face a competitive gap in high-demand markets</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Content Marketing Angles</div>
+            <ul class="angle-list">
+              <li>Insight report: "Senior Living's Supply-Demand Imbalance — What Operators Should Do Now"</li>
+              <li>Blog: "Why 90% Occupancy Is Just the Beginning: Yield Optimization Strategies for Senior Living"</li>
+              <li>Webinar: "Beyond Full Beds: Revenue Optimization in a Constrained Supply Market"</li>
+              <li>Infographic: NIC MAP occupancy trajectory + how technology-enabled operators outperform</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TREND 12: Boomer Consumer Expectations -->
+      <div class="trend-card" data-product="both" data-heat="2" data-dining="true" data-audience="ops mkt fin reit">
+        <div class="card-header">
+          <div class="card-header-top">
+            <div class="card-title">Boomer Consumer Expectations Reshape Senior Living Product</div>
+            <div class="card-badges">
+              <span class="product-badge both">Both Brands</span>
+              <span class="continuity-badge rising">📈 Rising</span>
+            </div>
+          </div>
+          <div class="card-meta-row">
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Heat
+              <div class="heat-dots"><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot"></div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Breadth
+              <div class="breadth-dots"><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot"></div><div class="breadth-dot"></div></div>
+            </div>
+            <span class="category-chip">Market</span>
+            <span class="dining-chip">🍽 Dining</span>
+            <div class="audience-tags"><span class="audience-tag">ops</span><span class="audience-tag">mkt</span><span class="audience-tag">reit</span></div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="stats-row">
+            <div class="stat-box"><div class="stat-box-num">80</div><div class="stat-box-label">Age the first tech-fluent boomers are reaching in 2026</div></div>
+            <div class="stat-box"><div class="stat-box-num">4.4%</div><div class="stat-box-label">Same-store asking rent growth AL Q3 2025 — boomers pay premium</div></div>
+            <div class="stat-box"><div class="stat-box-num">73%</div><div class="stat-box-label">AL and MC identified as segments with largest occupancy increase next 12 months <sup><a href="#src2">[2]</a></sup></div></div>
+            <div class="stat-box"><div class="stat-box-num">Wi-Fi</div><div class="stat-box-label">High-speed connectivity now "baseline infrastructure" per PwC/ULI</div></div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Context</div>
+            <div class="card-context">
+              <p>Boomers entering senior living in 2026 are the most technologically fluent generation to ever move in — they have grown up with smartphones, streaming, and digital services. Seamless connectivity, AI-powered wellness tools, and digital-first engagement are now non-negotiable expectations. Operators who don't offer restaurant-quality dining, engaging programming via technology, and transparent digital communication will face accelerating move-out risk.</p>
+              <p>Dining is a particularly high-stakes differentiator for this cohort. Boomers have sophisticated food expectations shaped by decades of restaurant and culinary culture. Basic "cafeteria-style" dining is increasingly a competitive liability. Communities investing in hospitality-forward, tech-enabled dining programs are seeing measurable retention and referral benefits.</p>
+            </div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Root Causes</div>
+            <ul class="driver-list">
+              <li>Boomers spent working years using digital tools — digital-first expectation is ingrained</li>
+              <li>Online restaurant and retail experiences set a hospitality bar senior living must match</li>
+              <li>Social media and online review culture elevates dining and programming to marketing differentiators</li>
+              <li>Health-conscious food preferences (plant-based, anti-inflammatory) require sophisticated menu management</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Operational Implications</div>
+            <ul class="implication-list">
+              <li>Technology investment in resident engagement tools is now a retention tool, not a "nice to have"</li>
+              <li>Dining programs need digital ordering, personalization, and nutrition transparency to meet expectations</li>
+              <li>Communities must modernize digital presence (website, reviews, virtual tours) to meet boomer research behavior</li>
+              <li>Boomer preferences drive more flexible care models — tech platforms that support choice and autonomy win</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Content Marketing Angles</div>
+            <ul class="angle-list">
+              <li>Blog: "What the First Boomers at 80 Expect from Senior Living — and How to Deliver It"</li>
+              <li>Video: eMenuChoice dining technology walkthrough for boomer-preference dining programs</li>
+              <li>Guide: "The Modern Senior Living Dining Program: Meeting 2026 Resident Expectations"</li>
+              <li>Social: Resident testimonial series highlighting tech-enabled dining and engagement experiences</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end market cards -->
+
+    <!-- FINANCE -->
+    <div class="category-section-header">Finance Trends</div>
+    <div class="cards-grid" style="margin-bottom: 24px;">
+
+      <!-- TREND 3: Medicaid Cuts -->
+      <div class="trend-card" data-product="both" data-heat="3" data-dining="false" data-audience="fin ops reit">
+        <div class="card-header">
+          <div class="card-header-top">
+            <div class="card-title">Medicaid Cuts Imperil Operator Finances</div>
+            <div class="card-badges">
+              <span class="product-badge both">Both Brands</span>
+              <span class="continuity-badge rising">📈 Rising</span>
+            </div>
+          </div>
+          <div class="card-meta-row">
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Heat
+              <div class="heat-dots"><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot active"></div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Breadth
+              <div class="breadth-dots"><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot active"></div></div>
+            </div>
+            <span class="category-chip">Finance / Regulatory</span>
+            <div class="audience-tags"><span class="audience-tag">fin</span><span class="audience-tag">ops</span><span class="audience-tag">reit</span></div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="stats-row">
+            <div class="stat-box"><div class="stat-box-num">~$1T</div><div class="stat-box-label">Federal Medicaid cuts projected over 10 years via "One Big Beautiful Bill" <sup><a href="#src4">[4]</a></sup></div></div>
+            <div class="stat-box"><div class="stat-box-num">18%</div><div class="stat-box-label">of AL residents rely on Medicaid to cover daily services (800K+ residents at risk)</div></div>
+            <div class="stat-box"><div class="stat-box-num">58%</div><div class="stat-box-label">of providers would reduce staff under proposed cuts (AHCA survey)</div></div>
+            <div class="stat-box"><div class="stat-box-num">27%</div><div class="stat-box-label">of providers say cuts would force them to close communities</div></div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Context</div>
+            <div class="card-context">
+              <p>The "One Big Beautiful Bill" advancing through Congress carries approximately $1 trillion in projected Medicaid spending cuts over the next decade — the most significant threat to long-term care financing in a generation. State-level ripple effects are already materializing: North Carolina imposed a 3% provider rate cut, Idaho implemented a 4% across-the-board reduction, and more states are revising waiver program structures. The legislative timeline creates acute uncertainty for 2027 budget planning. <sup><a href="#src4">[4]</a></sup></p>
+              <p>For operators dependent on Medicaid census — particularly SNF and lower-acuity AL providers — the threat is existential. The sector's strongest operators are pivoting to private-pay census growth strategies, operational efficiency investments, and technology-enabled margin management. Communities with billing automation, real-time census visibility, and payment management tools are better positioned to navigate reimbursement volatility.</p>
+            </div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Root Causes</div>
+            <ul class="driver-list">
+              <li>Federal budget deficit pressures driving entitlement spending review under current administration</li>
+              <li>Medicaid is one of the largest discretionary-adjacent line items available for cuts</li>
+              <li>State budget pressures compounding federal action — states seek matching reductions</li>
+              <li>Per-capita cap proposals shifting risk from federal to state level, intensifying local cuts</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Operational Implications</div>
+            <ul class="implication-list">
+              <li>Operators should model 2027 revenue under 10%, 20%, and 30% Medicaid census reduction scenarios</li>
+              <li>Private-pay census growth strategies become a financial survival priority, not just optimization</li>
+              <li>Billing and payment automation tools reduce cost-per-claim and improve collections as margins compress</li>
+              <li>ePay and automated billing reduce administrative overhead — critical as staff costs rise and revenue falls</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Content Marketing Angles</div>
+            <ul class="angle-list">
+              <li>Guide: "Protecting Senior Living Revenue in the Medicaid Cut Era: A Finance Leader's Playbook"</li>
+              <li>Webinar: "From Medicaid to Private Pay: How Operators Are Shifting Revenue Mix"</li>
+              <li>Blog: "Billing Automation as a Financial Resilience Strategy — Why Now Matters"</li>
+              <li>Calculator tool: Eldermark billing ROI estimator showing collections improvement vs. manual billing</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TREND 7: REIT Capital Surge -->
+      <div class="trend-card" data-product="eldermark" data-heat="2" data-dining="false" data-audience="fin reit">
+        <div class="card-header">
+          <div class="card-header-top">
+            <div class="card-title">REIT &amp; Institutional Capital Surge</div>
+            <div class="card-badges">
+              <span class="product-badge eldermark">Eldermark</span>
+              <span class="continuity-badge rising">📈 Rising</span>
+            </div>
+          </div>
+          <div class="card-meta-row">
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Heat
+              <div class="heat-dots"><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot"></div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Breadth
+              <div class="breadth-dots"><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot"></div></div>
+            </div>
+            <span class="category-chip">Finance</span>
+            <div class="audience-tags"><span class="audience-tag">fin</span><span class="audience-tag">reit</span></div>
+            <div class="capability-chips">
+              <span class="capability-chip">Analytics</span>
+              <span class="capability-chip">Billing</span>
+              <span class="capability-chip">ePay</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="stats-row">
+            <div class="stat-box"><div class="stat-box-num">$24B</div><div class="stat-box-label">Rolling 4Q transaction volume — highest in a decade <sup><a href="#src5">[5]</a></sup></div></div>
+            <div class="stat-box"><div class="stat-box-num">$3B</div><div class="stat-box-label">Ventas 2026 investment guidance (raised from $2.5B)</div></div>
+            <div class="stat-box"><div class="stat-box-num">$800M</div><div class="stat-box-label">Ventas year-to-date senior living acquisitions (as of early 2026)</div></div>
+            <div class="stat-box"><div class="stat-box-num">$425M</div><div class="stat-box-label">New REIT enters senior living market via luxury community acquisitions (May 2026) <sup><a href="#src5">[5]</a></sup></div></div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Context</div>
+            <div class="card-context">
+              <p>Capital markets have decisively shifted from defensive to offensive in senior housing. Senior housing was ranked second among 27 property subsectors by PwC/ULI for both investment and development prospects — behind only data centers. Janus Living completed a $880M IPO and announced $400M in planned acquisitions, while Ventas raised its 2026 investment guidance to $3 billion. Multiple new investors are entering the senior living sector for the first time. <sup><a href="#src5">[5]</a></sup></p>
+              <p>This capital influx creates both opportunity and pressure for operators. Acquisitions accelerate operator transitions, technology standardization needs, and reporting requirement complexity. New REIT and institutional owners prioritize data transparency, operational benchmarking, and technology-enabled oversight across portfolios — creating strong pull for integrated platforms like Eldermark that can provide consolidated analytics across multiple communities.</p>
+            </div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Root Causes</div>
+            <ul class="driver-list">
+              <li>Demographic demand certainty makes senior housing a rare "long-duration" real asset class</li>
+              <li>Improving NOI margins from occupancy recovery making underwriting math work again</li>
+              <li>Interest rate environment improving enough to support acquisition financing</li>
+              <li>Institutional mandate for alternative investment exposure shifting toward senior housing</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Operational Implications</div>
+            <ul class="implication-list">
+              <li>New REIT/PE owners demand real-time portfolio analytics — Eldermark's ElderSmarts analytics is a differentiator</li>
+              <li>Post-acquisition technology standardization creates large-scale Eldermark implementation opportunities</li>
+              <li>Investors want billing transparency and financial data integration — strengthen ePay and billing positioning</li>
+              <li>Multi-community operators with consolidated reporting capabilities gain investor confidence</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Content Marketing Angles</div>
+            <ul class="angle-list">
+              <li>Report: "The REIT Playbook for Technology: What Portfolio Owners Want from Operator Tech Stacks"</li>
+              <li>Blog: "How Eldermark Analytics Supports REIT Portfolio Transparency and NOI Optimization"</li>
+              <li>Thought leadership: "Senior Living M&amp;A Surge — How to Keep Operations Steady Through Transitions"</li>
+              <li>Target advertising: LinkedIn campaigns to senior housing investment professionals</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TREND 8: Construction/Tariff -->
+      <div class="trend-card" data-product="both" data-heat="2" data-dining="false" data-audience="ops fin reit">
+        <div class="card-header">
+          <div class="card-header-top">
+            <div class="card-title">Construction Cost Inflation &amp; Tariff Uncertainty</div>
+            <div class="card-badges">
+              <span class="product-badge both">Both Brands</span>
+              <span class="continuity-badge new">🆕 New</span>
+            </div>
+          </div>
+          <div class="card-meta-row">
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Heat
+              <div class="heat-dots"><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot"></div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Breadth
+              <div class="breadth-dots"><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot"></div><div class="breadth-dot"></div></div>
+            </div>
+            <span class="category-chip">Operations / Finance</span>
+            <div class="audience-tags"><span class="audience-tag">ops</span><span class="audience-tag">fin</span><span class="audience-tag">reit</span></div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="stats-row">
+            <div class="stat-box"><div class="stat-box-num">3–4%</div><div class="stat-box-label">Projected cost escalation in 2026 (down from 8–12% pandemic peak) <sup><a href="#src6">[6]</a></sup></div></div>
+            <div class="stat-box"><div class="stat-box-num">~8%</div><div class="stat-box-label">Aggregate construction cost increase under current tariff conditions</div></div>
+            <div class="stat-box"><div class="stat-box-num">5–25%</div><div class="stat-box-label">Tariff impact range depending on material type</div></div>
+            <div class="stat-box"><div class="stat-box-num">↑ AL</div><div class="stat-box-label">AL construction costs rising in 2026; IL costs relatively flat</div></div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Context</div>
+            <div class="card-context">
+              <p>Construction cost escalation in 2026 has moderated to 3–4% annually from the pandemic-era peak of 8–12%, but tariff policy uncertainty is creating a new layer of risk for planned development. Tariff impacts on steel, aluminum, and imported materials are estimated to increase aggregate construction costs by approximately 8% under current policy, with material-specific ranges of 5–25%. This uncertainty is causing some developers to delay planning-stage projects. <sup><a href="#src6">[6]</a></sup></p>
+              <p>The net effect is continued suppression of new supply starts — compounding the existing occupancy constraint but also creating a competitive moat for established operators. Communities that can document operational efficiency through technology and demonstrate strong NOI are better positioned to secure capital for renovation or expansion projects as lenders increase scrutiny of development feasibility.</p>
+            </div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Root Causes</div>
+            <ul class="driver-list">
+              <li>Trade policy tariffs adding 5–25% to specific building material costs with uncertain timeline</li>
+              <li>Labor costs in construction remain elevated relative to pre-pandemic baseline</li>
+              <li>Higher interest rates adding to financing costs even as rates stabilize</li>
+              <li>Insurance premium increases further compressing development feasibility math</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Operational Implications</div>
+            <ul class="implication-list">
+              <li>Operators with strong technology-enabled NOI have better access to renovation capital</li>
+              <li>Deferred construction means existing inventory retains premium value longer — maximize yield now</li>
+              <li>Energy and facility management software can reduce operating costs offsetting construction cost-driven CapEx</li>
+              <li>Operators should develop scenario planning tools for 2027 construction feasibility under different tariff outcomes</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Content Marketing Angles</div>
+            <ul class="angle-list">
+              <li>Blog: "Why Smart Senior Living Operators Are Investing in Tech Before New Construction"</li>
+              <li>Guide: "Maximizing Existing Asset Value in a Constrained Supply Environment"</li>
+              <li>Webinar: "Building Without Building: How Operational Excellence Outperforms Expansion"</li>
+              <li>LinkedIn: Data post on tariff impact + Eldermark operational ROI calculator</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end finance cards -->
+
+    <!-- WORKFORCE -->
+    <div class="category-section-header">Workforce Trends</div>
+    <div class="cards-grid" style="margin-bottom: 24px;">
+
+      <!-- TREND 5: Staffing Crisis -->
+      <div class="trend-card" data-product="eldermark" data-heat="3" data-dining="true" data-audience="ops don fin">
+        <div class="card-header">
+          <div class="card-header-top">
+            <div class="card-title">Workforce Staffing Crisis Persists Post-Mandate Repeal</div>
+            <div class="card-badges">
+              <span class="product-badge eldermark">Eldermark</span>
+              <span class="continuity-badge still_hot">🔥 Still Hot</span>
+            </div>
+          </div>
+          <div class="card-meta-row">
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Heat
+              <div class="heat-dots"><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot active"></div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Breadth
+              <div class="breadth-dots"><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot active"></div></div>
+            </div>
+            <span class="category-chip">Workforce / Regulatory</span>
+            <span class="dining-chip">🍽 Dining</span>
+            <div class="audience-tags"><span class="audience-tag">ops</span><span class="audience-tag">don</span><span class="audience-tag">fin</span></div>
+            <div class="capability-chips">
+              <span class="capability-chip">EHR</span>
+              <span class="capability-chip">eMAR</span>
+              <span class="capability-chip">Analytics</span>
+              <span class="capability-chip">AI/ML</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="stats-row">
+            <div class="stat-box"><div class="stat-box-num">73%</div><div class="stat-box-label">of operators say staffing is their #1 budget impact area for 2026 <sup><a href="#src7">[7]</a></sup></div></div>
+            <div class="stat-box"><div class="stat-box-num">3M+</div><div class="stat-box-label">Occupational openings needed in senior care by 2032 (Argentum)</div></div>
+            <div class="stat-box"><div class="stat-box-num">63%</div><div class="stat-box-label">of operators don't expect staffing improvement until 2027 or beyond</div></div>
+            <div class="stat-box"><div class="stat-box-num">94%</div><div class="stat-box-label">say recruiting new workers has become difficult (AHCA)</div></div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Context</div>
+            <div class="card-context">
+              <p>The repeal of the Biden-era nursing home staffing mandate via the "One Big Beautiful Bill" was celebrated as a regulatory win by providers — but it did not solve the underlying workforce shortage. Senior care will need 3 million-plus occupational openings by 2032, with 1.4 million workers needed in 2025 alone. The mandated minimum was removed, but market and regulatory pressure to improve staffing levels through other means (state rules, reimbursement incentives) continues to build. <sup><a href="#src7">[7]</a></sup></p>
+              <p>Staffing remains the top budget concern for 73% of operators and continues to drive up labor costs even as Medicaid reimbursement is threatened with cuts. The double-squeeze of rising labor costs and falling revenue creates acute margin pressure. Operators are increasingly turning to AI-powered scheduling, automated documentation reduction via EHR, and predictive staffing analytics to improve operational efficiency without adding headcount.</p>
+            </div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Root Causes</div>
+            <ul class="driver-list">
+              <li>Demographic mismatch: caregiving workforce is not growing as fast as the population needing care</li>
+              <li>Wage competition from retail and healthcare sectors continues to pull candidates away</li>
+              <li>Burnout and administrative burden driving turnover — documentation-heavy EHR environments worsen this</li>
+              <li>Immigration policy changes impacting availability of care workforce pipeline</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Operational Implications</div>
+            <ul class="implication-list">
+              <li>EHR platforms with streamlined documentation reduce per-task time — a meaningful retention tool</li>
+              <li>AI-powered scheduling optimization can reduce overtime costs by 15–20% in pilot studies</li>
+              <li>eMAR accuracy and alert systems reduce medication error risk during understaffed shifts</li>
+              <li>Predictive analytics for acuity-based staffing models ensure care coverage without overstaffing</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Content Marketing Angles</div>
+            <ul class="angle-list">
+              <li>Guide: "The Staffing Crisis Survival Kit: How Technology Reduces Burnout and Turnover"</li>
+              <li>Blog: "After the Mandate: What the Staffing Repeal Means for Senior Living Operations"</li>
+              <li>Webinar: "Doing More with Less: AI Scheduling and EHR Efficiency in a Tight Labor Market"</li>
+              <li>Case study: Eldermark community that reduced PRN usage and improved retention via scheduling analytics</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TREND 11: AI Workforce Optimization -->
+      <div class="trend-card" data-product="eldermark" data-heat="2" data-dining="true" data-audience="ops don fin">
+        <div class="card-header">
+          <div class="card-header-top">
+            <div class="card-title">AI Workforce Optimization &amp; Scheduling</div>
+            <div class="card-badges">
+              <span class="product-badge eldermark">Eldermark</span>
+              <span class="continuity-badge new">🆕 New</span>
+            </div>
+          </div>
+          <div class="card-meta-row">
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Heat
+              <div class="heat-dots"><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot"></div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Breadth
+              <div class="breadth-dots"><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot"></div><div class="breadth-dot"></div></div>
+            </div>
+            <span class="category-chip">Workforce / Technology</span>
+            <span class="dining-chip">🍽 Dining</span>
+            <div class="audience-tags"><span class="audience-tag">ops</span><span class="audience-tag">don</span><span class="audience-tag">fin</span></div>
+            <div class="capability-chips">
+              <span class="capability-chip">AI/ML (ElderSmarts)</span>
+              <span class="capability-chip">Analytics</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="stats-row">
+            <div class="stat-box"><div class="stat-box-num">20%</div><div class="stat-box-label">Retention improvement from AI-optimized schedules in pilot programs <sup><a href="#src8">[8]</a></sup></div></div>
+            <div class="stat-box"><div class="stat-box-num">37%</div><div class="stat-box-label">Advertising cost reduction via AI-powered recruitment optimization</div></div>
+            <div class="stat-box"><div class="stat-box-num">3mo</div><div class="stat-box-label">Average time to fill staffing openings — AI compresses this timeline significantly</div></div>
+            <div class="stat-box"><div class="stat-box-num">~1/3</div><div class="stat-box-label">Senior living leaders testing AI-based staffing alerts/predictive analytics</div></div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Context</div>
+            <div class="card-context">
+              <p>AI-powered workforce tools are emerging from pilot to early mainstream adoption in senior living, driven by the persistent staffing crisis. These tools go beyond simple scheduling to predict staffing needs based on resident acuity and historical patterns, flag at-risk employees before they resign, optimize shift construction to reduce burnout, and automate candidate sourcing and screening. The business case is compelling: one pilot program saw a 37% reduction in advertising costs and 20% retention improvement from AI-optimized scheduling. <sup><a href="#src8">[8]</a></sup></p>
+              <p>For dining operations specifically, AI scheduling tools address one of kitchen management's greatest challenges: aligning staffing to dining program complexity, resident volume, and meal service timing. Communities using AI workforce tools in dining report reduced overtime, better food quality consistency, and improved employee satisfaction. This is a specific angle eMenuChoice can leverage in dining tech positioning.</p>
+            </div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Root Causes</div>
+            <ul class="driver-list">
+              <li>Persistent staffing shortages make workforce optimization a financial necessity, not a luxury</li>
+              <li>AI cost has dropped to accessible levels for mid-market senior living operators</li>
+              <li>EHR-integrated acuity data enables more accurate staffing-to-care-need matching</li>
+              <li>Growing body of pilot evidence building ROI confidence for AI adoption</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Operational Implications</div>
+            <ul class="implication-list">
+              <li>Eldermark's ElderSmarts AI capabilities can be positioned as workforce intelligence, not just clinical analytics</li>
+              <li>Staffing optimization ROI is easier to quantify than clinical outcomes — strong sales tool</li>
+              <li>Integration between EHR acuity data and scheduling systems is a meaningful differentiator</li>
+              <li>eMenuChoice dining software integration with scheduling tools could reduce kitchen labor costs measurably</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Content Marketing Angles</div>
+            <ul class="angle-list">
+              <li>Blog: "From Burnout to Breakthrough: How AI Scheduling Is Changing Senior Living Workforce Management"</li>
+              <li>Infographic: AI workforce optimization ROI calculator — hours saved, cost reduced, retention improved</li>
+              <li>Guide: "ElderSmarts AI for Workforce Leaders: What the Data Can Tell You"</li>
+              <li>Email sequence: Targeting DONs with AI staffing intelligence use cases</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end workforce cards -->
+
+    <!-- TECHNOLOGY -->
+    <div class="category-section-header">Technology Trends</div>
+    <div class="cards-grid" style="margin-bottom: 24px;">
+
+      <!-- TREND 4: AI Clinical -->
+      <div class="trend-card" data-product="eldermark" data-heat="3" data-dining="false" data-audience="don ops mkt">
+        <div class="card-header">
+          <div class="card-header-top">
+            <div class="card-title">AI Clinical Decision Support Goes Mainstream</div>
+            <div class="card-badges">
+              <span class="product-badge eldermark">Eldermark</span>
+              <span class="continuity-badge rising">📈 Rising</span>
+            </div>
+          </div>
+          <div class="card-meta-row">
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Heat
+              <div class="heat-dots"><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot active"></div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Breadth
+              <div class="breadth-dots"><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot"></div></div>
+            </div>
+            <span class="category-chip">Technology / Clinical</span>
+            <div class="audience-tags"><span class="audience-tag">don</span><span class="audience-tag">ops</span><span class="audience-tag">mkt</span></div>
+            <div class="capability-chips">
+              <span class="capability-chip">EHR</span>
+              <span class="capability-chip">AI/ML (ElderSmarts)</span>
+              <span class="capability-chip">Analytics</span>
+              <span class="capability-chip">Resident Engagement</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="stats-row">
+            <div class="stat-box"><div class="stat-box-num">~33%</div><div class="stat-box-label">of senior living leaders testing or implementing AI-based alerts/predictive analytics <sup><a href="#src9">[9]</a></sup></div></div>
+            <div class="stat-box"><div class="stat-box-num">~50%</div><div class="stat-box-label">expressing interest in AI clinical capabilities</div></div>
+            <div class="stat-box"><div class="stat-box-num">$100M</div><div class="stat-box-label">Inspiren Series B for AI safety platform — signals market validation</div></div>
+            <div class="stat-box"><div class="stat-box-num">4,000+</div><div class="stat-box-label">Nominations from which PCC was selected Best EHR 2026 (competitive heat check)</div></div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Context</div>
+            <div class="card-context">
+              <p>AI in clinical care is moving from proof-of-concept to operational deployment in senior living. Approximately one-third of senior living leaders are actively testing or implementing AI-based alerts, predictive analytics, and care planning tools — a significant jump from prior years. Provider groups have formally petitioned HHS, noting that AI adoption "will remain extremely challenging if not impossible" without federal infrastructure support to address digital interoperability gaps across fragmented EHR ecosystems. <sup><a href="#src9">[9]</a></sup></p>
+              <p>The competitive landscape is accelerating this urgency. PointClickCare launched its "Study Buddy" AI research platform and "Referral Advisor" AI intake tool; Inspiren raised $100M for an AI safety layer; ALIS launched an AI conversational interface for operator data queries. Eldermark's ElderSmarts AI capabilities are well-positioned in the AL/MC segment — but the window for first-mover advantage in AI clinical storytelling is closing.</p>
+            </div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Root Causes</div>
+            <ul class="driver-list">
+              <li>Large language model capabilities maturing to clinical-grade reliability at lower cost</li>
+              <li>Competitive pressure from well-funded AI-native entrants forcing EHR platforms to accelerate AI roadmaps</li>
+              <li>Staffing shortage creating demand for AI as a "force multiplier" for clinical staff</li>
+              <li>Digital infrastructure investment (post-pandemic) creating data availability for AI training</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Operational Implications</div>
+            <ul class="implication-list">
+              <li>ElderSmarts AI must be prominently positioned in sales and marketing — competitors are making aggressive claims</li>
+              <li>Clinical outcome case studies are the highest-value content for AI differentiation — prioritize development</li>
+              <li>AI interoperability with third-party tools (Inspiren-type safety platforms) is a selling point if achievable</li>
+              <li>DON-targeted marketing should lead with AI alert and predictive analytics outcomes, not EHR feature parity</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Content Marketing Angles</div>
+            <ul class="angle-list">
+              <li>Whitepaper: "ElderSmarts vs. the Field: How Eldermark AI Delivers Clinical Outcomes in AL/MC"</li>
+              <li>Blog: "The AI EHR Race Is On — What Senior Living Clinical Teams Need to Know"</li>
+              <li>Webinar: "Beyond Alerts: How Predictive AI Is Changing Care Planning in Senior Living"</li>
+              <li>Video testimonials: DON and care team stories of ElderSmarts early warning outcomes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TREND 6: AI Marketing -->
+      <div class="trend-card" data-product="eldermark" data-heat="2" data-dining="false" data-audience="mkt ops">
+        <div class="card-header">
+          <div class="card-header-top">
+            <div class="card-title">AI-Powered Marketing &amp; Lead Intelligence</div>
+            <div class="card-badges">
+              <span class="product-badge eldermark">Eldermark</span>
+              <span class="continuity-badge rising">📈 Rising</span>
+            </div>
+          </div>
+          <div class="card-meta-row">
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Heat
+              <div class="heat-dots"><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot"></div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Breadth
+              <div class="breadth-dots"><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot"></div><div class="breadth-dot"></div></div>
+            </div>
+            <span class="category-chip">Technology / Market</span>
+            <div class="audience-tags"><span class="audience-tag">mkt</span><span class="audience-tag">ops</span></div>
+            <div class="capability-chips">
+              <span class="capability-chip">CRM</span>
+              <span class="capability-chip">Marketing Automation</span>
+              <span class="capability-chip">Digital Marketing</span>
+              <span class="capability-chip">Analytics</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="stats-row">
+            <div class="stat-box"><div class="stat-box-num">&lt;5min</div><div class="stat-box-label">Lead response time benchmark — AI automation enables this standard <sup><a href="#src10">[10]</a></sup></div></div>
+            <div class="stat-box"><div class="stat-box-num">GEO</div><div class="stat-box-label">Generative Engine Optimization — 2026's new SEO for AI search results</div></div>
+            <div class="stat-box"><div class="stat-box-num">3+</div><div class="stat-box-label">AI search engines now competing (ChatGPT, Perplexity, Gemini) for senior living search traffic</div></div>
+            <div class="stat-box"><div class="stat-box-num">Real-time</div><div class="stat-box-label">AI persona development now updates with each interaction, not static profiles</div></div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Context</div>
+            <div class="card-context">
+              <p>The senior living digital marketing landscape is being disrupted by AI search. In 2026, adult children and prospective residents increasingly begin their search on ChatGPT, Perplexity, and Google's AI Overview rather than traditional search result pages. Senior living communities that don't optimize for Generative Engine Optimization (GEO) and AI answer inclusion risk invisible lead funnels. The communities winning in this environment are those with authoritative, structured content that AI engines can cite. <sup><a href="#src10">[10]</a></sup></p>
+              <p>On the lead intelligence side, AI scoring and real-time persona modeling are reshaping CRM usage. Forward-thinking operators are using AI to prioritize lead follow-up, predict which prospects are most likely to tour or convert, and automate personalized outreach sequences. For Eldermark CRM users, this creates an opportunity to position ElderSmarts analytics as a lead intelligence layer on top of CRM pipeline data.</p>
+            </div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Root Causes</div>
+            <ul class="driver-list">
+              <li>AI search engines capturing increasing share of informational queries from Google</li>
+              <li>Adult child researchers (ages 45–65) are digitally native and AI-tool fluent</li>
+              <li>CRM data maturity in senior living allows AI scoring models to be trained on real pipeline behavior</li>
+              <li>Higher occupancy means operators can be more selective — better lead quality beats more volume</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Operational Implications</div>
+            <ul class="implication-list">
+              <li>CRM platforms must support AI lead scoring to remain competitive — Eldermark CRM roadmap priority</li>
+              <li>Senior living websites need structural content redesign for AI engine discovery (GEO)</li>
+              <li>Marketing automation workflows must integrate AI scoring signals for intelligent nurture sequences</li>
+              <li>Sub-5-minute lead response automation is now a qualification threshold, not a differentiator</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Content Marketing Angles</div>
+            <ul class="angle-list">
+              <li>Guide: "2026 Senior Living Digital Marketing Playbook: AI Search, GEO, and Lead Intelligence"</li>
+              <li>Blog: "Why Your Senior Living Community Isn't Showing Up in AI Search — And What to Do"</li>
+              <li>Webinar: "From Lead to Move-In Faster: AI Scoring and CRM Automation for Senior Living"</li>
+              <li>LinkedIn post series: Senior Living Marketing Director perspective on AI search disruption</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end technology cards -->
+
+    <!-- CLINICAL/REGULATORY -->
+    <div class="category-section-header">Clinical &amp; Regulatory Trends</div>
+    <div class="cards-grid" style="margin-bottom: 24px;">
+
+      <!-- TREND 9: Value-Based Care -->
+      <div class="trend-card" data-product="eldermark" data-heat="2" data-dining="false" data-audience="don fin ops">
+        <div class="card-header">
+          <div class="card-header-top">
+            <div class="card-title">Value-Based Care Shift Accelerates</div>
+            <div class="card-badges">
+              <span class="product-badge eldermark">Eldermark</span>
+              <span class="continuity-badge new">🆕 New</span>
+            </div>
+          </div>
+          <div class="card-meta-row">
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Heat
+              <div class="heat-dots"><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot"></div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Breadth
+              <div class="breadth-dots"><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot"></div><div class="breadth-dot"></div></div>
+            </div>
+            <span class="category-chip">Clinical / Regulatory</span>
+            <div class="audience-tags"><span class="audience-tag">don</span><span class="audience-tag">fin</span><span class="audience-tag">ops</span></div>
+            <div class="capability-chips">
+              <span class="capability-chip">EHR</span>
+              <span class="capability-chip">Analytics</span>
+              <span class="capability-chip">Billing</span>
+              <span class="capability-chip">AI/ML</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="stats-row">
+            <div class="stat-box"><div class="stat-box-num">14.3M</div><div class="stat-box-label">Medicare beneficiaries in ACOs in 2026 (up from 13.7M in 2025) <sup><a href="#src11">[11]</a></sup></div></div>
+            <div class="stat-box"><div class="stat-box-num">5%</div><div class="stat-box-label">ACO quality withhold increases from 2% to 5% in PY2026 — outcomes matter more</div></div>
+            <div class="stat-box"><div class="stat-box-num">2027</div><div class="stat-box-label">LEAD model (ACO REACH successor) launching — 10-year voluntary framework</div></div>
+            <div class="stat-box"><div class="stat-box-num">V28</div><div class="stat-box-label">CMS fully adopts V28 HCC prospective model for ACOs in 2026</div></div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Context</div>
+            <div class="card-context">
+              <p>The 2026 ACO REACH model changes signal a definitive acceleration away from fee-for-service Medicare toward capitation and outcomes accountability. As of January 2026, 14.3 million Medicare beneficiaries receive care through ACOs, with the quality withhold increasing from 2% to 5% in performance year 2026. CMS also announced the LEAD model — ACO REACH's successor — launching in 2027, placing even stronger emphasis on long-term accountability for high-needs populations. <sup><a href="#src11">[11]</a></sup></p>
+              <p>For senior living operators, this shift creates both opportunity and complexity. Communities positioned as care coordination hubs — with integrated EHR data, clinical outcome documentation, and analytics capabilities — can negotiate favorable partnerships with ACOs and health systems. Operators without clinical data infrastructure risk being excluded from value-based networks as health systems increasingly direct referrals to outcomes-demonstrable post-acute partners.</p>
+            </div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Root Causes</div>
+            <ul class="driver-list">
+              <li>CMS cost-containment mandate driving shift from volume to value across all post-acute settings</li>
+              <li>ACO REACH model proven successful in reducing per-beneficiary spend — accelerating expansion</li>
+              <li>Health system consolidation driving care coordination network strategy that includes senior living</li>
+              <li>LEAD model design addresses prior ACO REACH barriers to long-term provider participation</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Operational Implications</div>
+            <ul class="implication-list">
+              <li>Senior living operators should proactively seek ACO network relationships — referral flow is at stake</li>
+              <li>Clinical documentation quality and outcome reporting become economic drivers, not just compliance activities</li>
+              <li>EHR platforms with outcome analytics and care coordination tools are essential for VBC participation</li>
+              <li>Eldermark's EHR/analytics integration makes it a logical VBC-readiness platform for AL/MC operators</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Content Marketing Angles</div>
+            <ul class="angle-list">
+              <li>Guide: "Value-Based Care Readiness for AL/MC: What Your EHR Needs to Support ACO Partnerships"</li>
+              <li>Blog: "The ACO REACH Model in 2026 — What It Means for Senior Living Operators"</li>
+              <li>Webinar: "From FFS to Capitation: How Senior Living Communities Are Positioning for VBC"</li>
+              <li>LinkedIn: Thought leadership from Eldermark clinical leadership on ACO readiness</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end clinical cards -->
+
+    <!-- OPERATIONS / DINING -->
+    <div class="category-section-header">Operations &amp; Dining Trends</div>
+    <div class="cards-grid" style="margin-bottom: 24px;">
+
+      <!-- TREND 10: Dining Tech -->
+      <div class="trend-card" data-product="emenu" data-heat="2" data-dining="true" data-audience="ops mkt fin">
+        <div class="card-header">
+          <div class="card-header-top">
+            <div class="card-title">Dining Tech as Competitive Differentiator</div>
+            <div class="card-badges">
+              <span class="product-badge emenu">eMenuChoice</span>
+              <span class="continuity-badge rising">📈 Rising</span>
+            </div>
+          </div>
+          <div class="card-meta-row">
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Heat
+              <div class="heat-dots"><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot"></div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);">Breadth
+              <div class="breadth-dots"><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot active"></div><div class="breadth-dot"></div><div class="breadth-dot"></div></div>
+            </div>
+            <span class="category-chip">Operations</span>
+            <span class="dining-chip">🍽 Dining</span>
+            <div class="audience-tags"><span class="audience-tag">ops</span><span class="audience-tag">mkt</span><span class="audience-tag">fin</span></div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="stats-row">
+            <div class="stat-box"><div class="stat-box-num">Digital</div><div class="stat-box-label">Tableside/kiosk ordering now standard expectation at progressive senior living communities <sup><a href="#src12">[12]</a></sup></div></div>
+            <div class="stat-box"><div class="stat-box-num">AI</div><div class="stat-box-label">AI algorithms personalizing menus based on dietary needs, preferences, and health conditions</div></div>
+            <div class="stat-box"><div class="stat-box-num">↓ Waste</div><div class="stat-box-label">Food inventory management AI reducing waste and optimizing procurement costs</div></div>
+            <div class="stat-box"><div class="stat-box-num">Key</div><div class="stat-box-label">Dining cited as top differentiator for attracting residents AND retaining dining staff</div></div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Context</div>
+            <div class="card-context">
+              <p>Senior living dining has evolved from a compliance function to a strategic differentiator. Technology is at the center of this shift: digital menus, tableside and bedside ordering on tablets, kiosk-based self-service, and AI-driven personalization are now table stakes at competitive communities. Communities that have invested in dining tech report measurable improvements in resident satisfaction, staff efficiency, and family confidence — all of which translate directly to occupancy and retention outcomes. <sup><a href="#src12">[12]</a></sup></p>
+              <p>The "food as medicine" movement is gaining particular traction, with menus being redesigned around specific health conditions and nutritional outcomes. AI systems that analyze individual nutritional needs and dietary restrictions — integrating with clinical records — are creating new value at the intersection of dining and care. eMenuChoice's position at this intersection is a strategic asset that needs more visible clinical-care storytelling to capture this trend.</p>
+            </div>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Root Causes</div>
+            <ul class="driver-list">
+              <li>Boomer entrants have sophisticated food expectations from decades of restaurant culture</li>
+              <li>Dining dissatisfaction is a primary driver of resident complaints and move-outs</li>
+              <li>Kitchen staffing shortages require technology to maintain service quality with fewer workers</li>
+              <li>Competitive pressure as dining differentiates communities in high-occupancy markets</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Operational Implications</div>
+            <ul class="implication-list">
+              <li>Dining software with AI personalization and nutrition management connects to clinical EHR value chain</li>
+              <li>Digital ordering reduces dining staff workload, addressing kitchen staffing pressure</li>
+              <li>Food waste reduction via AI procurement optimization directly improves food cost per resident day</li>
+              <li>Dining satisfaction scores connected to family communication tools improve census retention</li>
+            </ul>
+          </div>
+          <div class="card-section">
+            <div class="card-section-title">Content Marketing Angles</div>
+            <ul class="angle-list">
+              <li>Blog: "The Senior Living Dining Revolution: Why Technology Is Now Table Stakes"</li>
+              <li>Case study: eMenuChoice community showing improved satisfaction, reduced waste, and staff efficiency</li>
+              <li>Guide: "From Cafeteria to Culinary Experience: eMenuChoice for the Boomer Generation"</li>
+              <li>Competitive comparison: eMenuChoice vs. MealSuite/dineOS feature and outcome comparison</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end ops cards -->
+
+  </section>
+
+  <!-- SOURCES -->
+  <section id="sources-section">
+    <div class="section-title">📚 Sources</div>
+    <div class="sources-section">
+      <div class="source-item"><div class="source-num" id="src1">[1]</div><div><a class="source-link" href="https://fortune.com/2026/05/09/baby-boomers-senior-housing-real-estate-gold-rush-24-billion-silver-tsunami/" target="_blank">Fortune: Investors Betting Big on Senior Housing for Baby Boomers — May 9, 2026</a></div></div>
+      <div class="source-item"><div class="source-num" id="src2">[2]</div><div><a class="source-link" href="https://seniorhousingnews.com/2026/01/06/senior-living-executive-forecast-2026-industry-still-not-ready-to-serve-boomer-generation/" target="_blank">Senior Housing News: Executive Forecast 2026 — Industry Still Not Ready to Serve Boomer Generation</a></div></div>
+      <div class="source-item"><div class="source-num" id="src3">[3]</div><div><a class="source-link" href="https://www.nicmap.com/news/senior-living-occupancy-grows-amid-construction-slowdown-limiting-options-for-older-adults/" target="_blank">NIC MAP: Senior Living Occupancy Grows Amid Construction Slowdown — 2026</a></div></div>
+      <div class="source-item"><div class="source-num" id="src4">[4]</div><div><a class="source-link" href="https://www.mcknightsseniorliving.com/news/ripple-effects-of-medicaid-cuts-roll-out-to-assisted-living-providers-at-the-state-level/" target="_blank">McKnight's Senior Living: Ripple Effects of Medicaid Cuts Roll Out to AL Providers</a></div></div>
+      <div class="source-item"><div class="source-num" id="src5">[5]</div><div><a class="source-link" href="https://seniorhousingnews.com/2026/04/28/ventas-ups-2026-investment-guidance-to-3b-as-buying-remains-more-attractive-than-building/" target="_blank">Senior Housing News: Ventas Ups 2026 Investment Guidance to $3B — April 28, 2026</a></div></div>
+      <div class="source-item"><div class="source-num" id="src6">[6]</div><div><a class="source-link" href="https://www.weitz.com/2026-senior-living-construction-costs-issue-1/" target="_blank">Weitz: 2026 Senior Living Construction Costs — Issue 1</a></div></div>
+      <div class="source-item"><div class="source-num" id="src7">[7]</div><div><a class="source-link" href="https://www.mcknightsseniorliving.com/news/repeal-of-minimum-staffing-rule-doesnt-fix-senior-living-staffing-issues-advocates-say/" target="_blank">McKnight's Senior Living: Repeal of Minimum Staffing Rule Doesn't Fix Staffing Issues</a></div></div>
+      <div class="source-item"><div class="source-num" id="src8">[8]</div><div><a class="source-link" href="https://www.pharmiweb.com/press-release/2026-04-07/how-ai-is-revolutionizing-senior-living-insights-from-the-2026-cxo-summit" target="_blank">PharmiWeb: How AI Is Revolutionizing Senior Living — 2026 CXO Summit Insights</a></div></div>
+      <div class="source-item"><div class="source-num" id="src9">[9]</div><div><a class="source-link" href="https://www.mcknightsseniorliving.com/news/ai-adoption-in-senior-living-requires-infrastructure-investments-to-fill-in-digital-gaps-provider-groups-tell-hhs/" target="_blank">McKnight's: AI Adoption Requires Infrastructure Investments — Provider Groups Tell HHS</a></div></div>
+      <div class="source-item"><div class="source-num" id="src10">[10]</div><div><a class="source-link" href="https://seniorhousingnews.com/2026/01/14/senior-living-operators-embrace-authenticity-in-digital-marketing-amid-new-frontier-of-ai-searches/" target="_blank">Senior Housing News: Operators Embrace Authenticity in Digital Marketing Amid AI Search Frontier</a></div></div>
+      <div class="source-item"><div class="source-num" id="src11">[11]</div><div><a class="source-link" href="https://www.cms.gov/newsroom/fact-sheets/2026-medicare-accountable-care-organization-initiatives-participation-highlights" target="_blank">CMS: 2026 Medicare ACO Initiatives Participation Highlights</a></div></div>
+      <div class="source-item"><div class="source-num" id="src12">[12]</div><div><a class="source-link" href="https://gfs.com/en-us/ideas/state-of-senior-living-dining-outlook-on-2026/" target="_blank">Gordon Food Service: State of Senior Living Dining — Outlook on 2026</a></div></div>
+      <div class="source-item"><div class="source-num">[13]</div><div><a class="source-link" href="https://pointclickcare.com/press-releases/pointclickcare-awarded-best-ehr-solution-in-the-2026-medtech-breakthrough-awards/" target="_blank">PointClickCare: Awarded Best EHR Solution — 2026 MedTech Breakthrough Awards</a></div></div>
+      <div class="source-item"><div class="source-num">[14]</div><div><a class="source-link" href="https://www.prnewswire.com/news-releases/inspiren-raises-100m-series-b-to-lead-senior-livings-ai-driven-future-302566946.html" target="_blank">PR Newswire: Inspiren Raises $100M Series B to Lead Senior Living's AI-Driven Future</a></div></div>
+      <div class="source-item"><div class="source-num">[15]</div><div><a class="source-link" href="https://www.ecp123.com/blog/welcomehome-and-ecp-partner-to-simplify-move-ins-and-connect-sales-to-care-for-senior-living-communities" target="_blank">ECP: WelcomeHome and ECP Partner to Simplify Move-Ins</a></div></div>
+      <div class="source-item"><div class="source-num">[16]</div><div><a class="source-link" href="https://seniorhousingnews.com/2026/05/04/now-at-fighting-weight-brookdale-senior-living-turns-to-offense/" target="_blank">Senior Housing News: Brookdale at 'Fighting Weight,' Turns to Offense — May 4, 2026</a></div></div>
+      <div class="source-item"><div class="source-num">[17]</div><div><a class="source-link" href="https://www.mcknightsseniorliving.com/news/senior-living-enters-2026-at-a-critical-juncture/" target="_blank">McKnight's Senior Living: Senior Living Enters 2026 at a Critical Juncture</a></div></div>
+      <div class="source-item"><div class="source-num">[18]</div><div><a class="source-link" href="https://www.nicmap.com/blog/senior-housing-five-key-trends-to-watch-in-2026/" target="_blank">NIC MAP: Senior Housing — Five Key Trends to Watch in 2026</a></div></div>
+      <div class="source-item"><div class="source-num">[19]</div><div><a class="source-link" href="https://seniorhousingnews.com/2026/05/07/health-care-reit-enters-senior-living-industry-with-425m-acquisition-of-3-luxury-communities/" target="_blank">Senior Housing News: Health Care REIT Enters Senior Living with $425M Acquisition — May 7, 2026</a></div></div>
+      <div class="source-item"><div class="source-num">[20]</div><div><a class="source-link" href="https://www.mcknights.com/news/cms-delays-nursing-home-staffing-incentives-until-mid-2026/" target="_blank">McKnight's LTC: CMS Delays Nursing Home Staffing Incentives Until Mid-2026</a></div></div>
+      <div class="source-item"><div class="source-num">[21]</div><div><a class="source-link" href="https://seniorhousingnews.com/2026/05/06/janus-living-tees-up-400m-in-senior-living-acquisitions-after-ipo/" target="_blank">Senior Housing News: Janus Living Tees Up $400M in Acquisitions After IPO — May 6, 2026</a></div></div>
+      <div class="source-item"><div class="source-num">[22]</div><div><a class="source-link" href="https://conversionlogix.com/blog/senior-living-marketing-trends-for-2026-ai-search-local-demand-and-better-leads/" target="_blank">Conversion Logix: Senior Living Marketing Trends for 2026 — AI Search, Local Demand, Better Leads</a></div></div>
+    </div>
+  </section>
+
+</div><!-- /content -->
+
+<div class="report-footer">
+  LivTech Residential Division — Eldermark &amp; eMenuChoice &nbsp;|&nbsp; Generated May 11, 2026 &nbsp;|&nbsp; Edition 2 &nbsp;|&nbsp; Next Edition: May 25, 2026<br>
+  <span style="opacity:0.6;">For internal use. Sources cited from publicly available industry publications.</span>
+</div>
+
+<script>
+let currentAudience = 'all';
+let currentProduct = 'all';
+let hotOnly = false;
+let diningOnly = false;
+
+function setAudience(audience, btn) {
+  currentAudience = audience;
+  document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
+}
+
+function setProduct(product, btn) {
+  currentProduct = product;
+  document.querySelectorAll('[data-product-btn]').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
+}
+
+function toggleFilter(type, btn) {
+  if (type === 'hot') {
+    hotOnly = !hotOnly;
+    btn.classList.toggle('active', hotOnly);
+  } else if (type === 'dining') {
+    diningOnly = !diningOnly;
+    btn.classList.toggle('active', diningOnly);
+  }
+  applyFilters();
+}
+
+function applyFilters() {
+  document.querySelectorAll('.trend-card').forEach(card => {
+    const cardProduct = card.dataset.product;
+    const cardHeat = parseInt(card.dataset.heat);
+    const cardDining = card.dataset.dining === 'true';
+    const cardAudience = card.dataset.audience || '';
+
+    let show = true;
+
+    if (currentProduct !== 'all') {
+      if (currentProduct === 'eldermark' && cardProduct !== 'eldermark' && cardProduct !== 'both') show = false;
+      if (currentProduct === 'emenu' && cardProduct !== 'emenu' && cardProduct !== 'both') show = false;
+    }
+    if (hotOnly && cardHeat < 3) show = false;
+    if (diningOnly && !cardDining) show = false;
+    if (currentAudience !== 'all' && !cardAudience.includes(currentAudience)) show = false;
+
+    card.classList.toggle('hidden', !show);
+  });
+
+  // Filter summary table rows
+  document.querySelectorAll('.summary-table tbody tr').forEach(row => {
+    const rowProduct = row.dataset.product;
+    const rowHeat = parseInt(row.dataset.heat);
+    const rowDining = row.dataset.dining === 'true';
+    const rowAudience = row.dataset.audience || '';
+
+    let show = true;
+    if (currentProduct !== 'all') {
+      if (currentProduct === 'eldermark' && rowProduct !== 'eldermark' && rowProduct !== 'both') show = false;
+      if (currentProduct === 'emenu' && rowProduct !== 'emenu' && rowProduct !== 'both') show = false;
+    }
+    if (hotOnly && rowHeat < 3) show = false;
+    if (diningOnly && !rowDining) show = false;
+    if (currentAudience !== 'all' && !rowAudience.includes(currentAudience)) show = false;
+
+    row.style.display = show ? '' : 'none';
+  });
+}
+
+// Wire up product filter buttons
+document.querySelectorAll('[data-product]').forEach(btn => {
+  if (btn.tagName === 'BUTTON') {
+    btn.addEventListener('click', function() {
+      setProduct(this.dataset.product, this);
+    });
+  }
+});
+</script>
+
+</body>
+</html>

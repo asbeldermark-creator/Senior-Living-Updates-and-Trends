@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LivTech Senior Living Industry Intelligence — Report Index</title>
+<style>
+  :root {
+    --eldermark-blue: #003087;
+    --eldermark-teal: #00A99D;
+    --emenu-purple: #7B2D8B;
+    --bg: #F4F6F9;
+    --card-bg: #FFFFFF;
+    --border: #E5E7EB;
+    --text: #1A1A2E;
+    --muted: #6B7280;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); }
+
+  .header {
+    background: linear-gradient(135deg, var(--eldermark-blue) 0%, #001a5c 100%);
+    color: white;
+    padding: 40px;
+    text-align: center;
+  }
+  .header h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+  .header p { opacity: 0.75; font-size: 14px; }
+
+  .content { max-width: 960px; margin: 0 auto; padding: 36px 24px; }
+
+  .section-title {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  .report-grid { display: grid; gap: 16px; }
+
+  .report-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1.5px solid var(--border);
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    transition: box-shadow 0.15s;
+  }
+  .report-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+  .report-card.latest { border-color: var(--eldermark-teal); background: linear-gradient(135deg, #f0fdfa 0%, #ecfdf5 100%); }
+
+  .card-left { flex: 1; }
+  .card-edition { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 4px; }
+  .card-edition.latest { color: var(--eldermark-teal); }
+  .card-title { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+  .card-date { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+  .card-chips { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+  .chip { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 10px; }
+  .chip.blue { background: #dbeafe; color: var(--eldermark-blue); }
+  .chip.purple { background: #f3e8ff; color: var(--emenu-purple); }
+  .chip.red { background: #fef2f2; color: #b91c1c; }
+  .chip.teal { background: #f0fdfa; color: #0f766e; }
+  .chip.gray { background: #f1f5f9; color: var(--muted); }
+  .chip.green { background: #f0fdf4; color: #15803d; }
+  .card-summary { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+  .card-right { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; margin-left: 20px; }
+  .view-btn {
+    background: var(--eldermark-blue);
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+  .view-btn:hover { background: #001f6b; }
+  .view-btn.latest { background: var(--eldermark-teal); }
+  .view-btn.latest:hover { background: #007a73; }
+
+  .latest-badge {
+    font-size: 11px;
+    font-weight: 800;
+    background: var(--eldermark-teal);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 10px;
+  }
+
+  .future-section { margin-top: 32px; }
+  .future-card {
+    background: white;
+    border-radius: 12px;
+    border: 1.5px dashed var(--border);
+    padding: 20px 24px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .footer { text-align: center; padding: 24px; color: var(--muted); font-size: 12px; margin-top: 20px; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🏥 LivTech Industry Intelligence</h1>
+  <p>Eldermark &amp; eMenuChoice — Senior Living Residential Division Trend Reports</p>
+  <p style="margin-top: 4px; font-size: 12px; opacity:0.6;">Bi-weekly · Covering AL, MC, IL, SNF · For internal use</p>
+</div>
+
+<div class="content">
+
+  <div class="section-title">📋 Report Archive</div>
+  <div class="report-grid">
+
+    <!-- LATEST: Edition 2 -->
+    <div class="report-card latest">
+      <div class="card-left">
+        <div class="card-edition latest">⚡ Latest · Edition 2</div>
+        <div class="card-title">Eldermark Industry Trends — May 11, 2026</div>
+        <div class="card-date">Report period: Apr 28 – May 11, 2026 · Next update: May 25, 2026</div>
+        <div class="card-chips">
+          <span class="chip blue">12 Trends Tracked</span>
+          <span class="chip purple">eMenuChoice Layer</span>
+          <span class="chip red">5 Breaking Signals 🔥</span>
+          <span class="chip teal">Competitive Corner</span>
+          <span class="chip green">6 Competitive Items</span>
+          <span class="chip gray">22 Sources</span>
+        </div>
+        <div class="card-summary">
+          Boomer demand inflection point arrives as oldest boomers turn 80. Occupancy approaches 20-year highs with record-low supply growth. Medicaid cuts threat escalates. PointClickCare wins 2026 MedTech Best EHR and launches multiple AI products. Inspiren raises $100M Series B. Aline Summit this week.
+        </div>
+      </div>
+      <div class="card-right">
+        <span class="latest-badge">LATEST</span>
+        <a class="view-btn latest" href="reports/eldermark-industry-trends-2026-05-11.html">View Report →</a>
+      </div>
+    </div>
+
+    <!-- Future reports will be added above this comment -->
+
+    <!-- Edition 1 -->
+    <div class="report-card">
+      <div class="card-left">
+        <div class="card-edition">Edition 1</div>
+        <div class="card-title">Eldermark Industry Trends — March 25, 2026</div>
+        <div class="card-date">Report period: Mar 11 – Mar 25, 2026</div>
+        <div class="card-chips">
+          <span class="chip blue">Inaugural Edition</span>
+          <span class="chip purple">eMenuChoice Layer</span>
+          <span class="chip teal">Competitive Corner</span>
+        </div>
+        <div class="card-summary">Inaugural edition establishing trend baseline. Staffing crisis, boomer demand wave, occupancy recovery, and AI technology adoption identified as primary signals.</div>
+      </div>
+      <div class="card-right">
+        <a class="view-btn" href="reports/eldermark-industry-trends-2026-03-25.html">View Report →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="future-section">
+    <div class="section-title">🔮 Upcoming Editions</div>
+    <div class="future-card">
+      📅 <strong>Edition 3</strong> — May 25, 2026 · <strong>Edition 4</strong> — June 8, 2026 · <strong>Edition 5</strong> — June 22, 2026
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  LivTech Residential Division — Eldermark &amp; eMenuChoice &nbsp;|&nbsp; Bi-weekly Senior Living Industry Intelligence
+</div>
+
+</body>
+</html>
